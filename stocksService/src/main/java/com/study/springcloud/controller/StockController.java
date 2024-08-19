@@ -15,6 +15,11 @@ public class StockController {
     @RequestMapping("/reduct")
     public String reduct() {
         System.out.println("reduct");
+//        try {
+//            Thread.sleep(4000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         return "stock";
     }
 }

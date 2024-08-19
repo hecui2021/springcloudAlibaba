@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @date 2024-08-09
  */
 @Component
-public class StockServiceFallback implements StockService {
+public class   StockServiceFallback implements StockService {
     @Override
     public String reduct() {
         System.out.println("降级方法 reduct");
