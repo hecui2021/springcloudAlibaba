@@ -71,5 +71,6 @@
     <modules>
         <module>orderService</module>
         <module>stocksService</module>
+        <module>gateway</module>
     </modules>
 </project>
