@@ -72,5 +72,6 @@
         <module>orderService</module>
         <module>stocksService</module>
         <module>gateway</module>
+        <module>grpcStudy</module>
     </modules>
 </project>
