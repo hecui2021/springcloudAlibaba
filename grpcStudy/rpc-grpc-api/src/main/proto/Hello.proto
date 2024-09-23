@@ -20,7 +20,16 @@ message HelloRespone {
 
 // 服务
 service HelloService {
-  // 接口
+  // 普通rpc接口
   rpc hello(HelloRequest) returns(HelloRespone){}
+
+  // 服务端流式rpc接口
+  rpc serverHello(HelloRequest) returns(stream HelloRespone){}
+
+  // 客户端流式rpc接口
+  rpc clientHello(stream HelloRequest) returns(HelloRespone){}
+
+  // 双向流rpc接口
+  rpc doubleHello(stream HelloRequest) returns(HelloRespone){}
 }
 

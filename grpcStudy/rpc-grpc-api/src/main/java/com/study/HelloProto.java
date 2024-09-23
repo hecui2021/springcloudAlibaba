@@ -110,8 +110,8 @@ public final class HelloProto {
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+//      if (isInitialized == 1) return true;
+//      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -129,7 +129,7 @@ public final class HelloProto {
     @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
-      if (size != -1) return size;
+//      if (size != -1) return size;
 
       size = 0;
 //      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
@@ -662,13 +662,8 @@ public final class HelloProto {
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) {
-        return true;
-      }
-
-      if (isInitialized == 0) {
-        return false;
-      }
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -686,7 +681,7 @@ public final class HelloProto {
     @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
-      if (size != -1) return size;
+//      if (size != -1) return size;
 
       size = 0;
 //      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(result_)) {
@@ -1144,10 +1139,13 @@ public final class HelloProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\013Hello.proto\"\034\n\014HelloRequest\022\014\n\004name\030\001 " +
-      "\001(\t\"\036\n\014HelloRespone\022\016\n\006result\030\001 \001(\t27\n\014H" +
-      "elloService\022\'\n\005hello\022\r.HelloRequest\032\r.He" +
-      "lloRespone\"\000B\031\n\tcom.studyB\nHelloProtoP\000b" +
-      "\006proto3"
+      "\001(\t\"\036\n\014HelloRespone\022\016\n\006result\030\001 \001(\t2\312\001\n\014" +
+      "HelloService\022\'\n\005hello\022\r.HelloRequest\032\r.H" +
+      "elloRespone\"\000\022/\n\013serverHello\022\r.HelloRequ" +
+      "est\032\r.HelloRespone\"\0000\001\022/\n\013clientHello\022\r." +
+      "HelloRequest\032\r.HelloRespone\"\000(\001\022/\n\013doubl" +
+      "eHello\022\r.HelloRequest\032\r.HelloRespone\"\000(\001" +
+      "B\031\n\tcom.studyB\nHelloProtoP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

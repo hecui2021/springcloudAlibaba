@@ -3,6 +3,8 @@ package com.study;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
+import java.util.Iterator;
+
 /**
  * @Author: peterche
  * @Description:
@@ -25,6 +27,14 @@ public class GrpcClient {
         HelloProto.HelloRespone helloRespone = helloServiceStub.hello(helloRequest);
         String result = helloRespone.getResult();
         System.out.println("result:" + result);
+
+//        // 服务端流式rpc
+//        Iterator<HelloProto.HelloRespone> helloResponeIterator = helloServiceStub.serverHello(helloRequest);
+//        while (helloResponeIterator.hasNext()) {
+//            HelloProto.HelloRespone helloRespone1 = helloResponeIterator.next();
+//            String helloRespone1 = helloRespone.getResult();
+//            System.out.println("result:" + result);
+//        }
 
 
     }
