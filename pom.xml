@@ -73,5 +73,6 @@
         <module>stocksService</module>
         <module>gateway</module>
         <module>grpcStudy</module>
+        <module>nettyStudy</module>
     </modules>
 </project>
