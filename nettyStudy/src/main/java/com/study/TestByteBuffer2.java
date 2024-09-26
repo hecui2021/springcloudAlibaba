@@ -1,4 +1,4 @@
-package com.study.springcloud;
+package com.study;
 
 import java.nio.ByteBuffer;
 

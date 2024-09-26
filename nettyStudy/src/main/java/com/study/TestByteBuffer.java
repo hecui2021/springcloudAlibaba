@@ -1,4 +1,4 @@
-package com.study.springcloud;
+package com.study;
 
 import lombok.extern.slf4j.Slf4j;
 
