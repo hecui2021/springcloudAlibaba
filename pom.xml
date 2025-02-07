@@ -74,5 +74,6 @@
         <module>gateway</module>
         <module>grpcStudy</module>
         <module>nettyStudy</module>
+        <module>aiStudy</module>
     </modules>
 </project>
