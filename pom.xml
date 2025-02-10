@@ -75,5 +75,6 @@
         <module>grpcStudy</module>
         <module>nettyStudy</module>
         <module>aiStudy</module>
+        <module>interviewRecord</module>
     </modules>
 </project>
