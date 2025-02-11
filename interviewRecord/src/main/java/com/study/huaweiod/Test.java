@@ -1,5 +1,7 @@
 package com.study.huaweiod;
 
+import java.util.Scanner;
+
 /**
  * @Author: peterche
  * @Description:
@@ -7,6 +9,6 @@ package com.study.huaweiod;
  */
 public class Test {
     public static void main(String[] args) {
-
+        Scanner in = new Scanner(System.in);
     }
 }

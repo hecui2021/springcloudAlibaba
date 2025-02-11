@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * @Author: peterche
- * @Description:
+ * @Description: 分苹果
  * @Date: 2025/2/10 23:18
  */
 public class Test {
