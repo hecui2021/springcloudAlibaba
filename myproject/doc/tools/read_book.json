@@ -1,0 +1,22 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "read_book",
+      "description": "樊登读书",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "contents": {
+            "description": "目录",
+            "type": "string",
+            "enum": ["热听榜", "限时免费", "本周新书", "我的"]
+          }
+        },
+        "required": [
+          "contents"
+        ]
+      }
+    }
+  }
+]

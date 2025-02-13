@@ -1,0 +1,533 @@
+{
+  "app": [
+    {
+      "appName": "瑞幸",
+      "description": "瑞幸咖啡小程序",
+      "function": [
+        {
+          "name": "首页",
+          "description": "首页"
+        },
+        {
+          "name": "点单",
+          "description": "点单"
+        },
+        {
+          "name": "我的订单",
+          "description": "我的订单"
+        },
+        {
+          "name": "咖啡钱包",
+          "description": "咖啡钱包"
+        },
+        {
+          "name": "账户余额",
+          "description": "账户余额"
+        },
+        {
+          "name": "优惠卷",
+          "description": "优惠卷"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "腾讯视频",
+      "description": "腾讯视频小程序",
+      "function": [
+        {
+          "name": "首页推荐",
+          "description": "首页推荐"
+        },
+        {
+          "name": "短剧",
+          "description": "短剧"
+        },
+        {
+          "name": "片库",
+          "description": "片库"
+        },
+        {
+          "name": "观看历史",
+          "description": "观看历史"
+        },
+        {
+          "name": "我的在追",
+          "description": "我的在追"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "猫眼电影",
+      "description": "猫眼电影小程序，可以用于电影、演唱会、音乐会等演出节目信息的查询和订票",
+      "function": [
+        {
+          "name": "热映",
+          "description": "热映"
+        },
+        {
+          "name": "首页推荐",
+          "description": "首页推荐"
+        },
+        {
+          "name": "演出",
+          "description": "演出"
+        },
+        {
+          "name": "演唱会",
+          "description": "演唱会"
+        },
+        {
+          "name": "音乐会",
+          "description": "音乐会"
+        },
+        {
+          "name": "音乐节",
+          "description": "音乐节"
+        },
+        {
+          "name": "脱口秀",
+          "description": "脱口秀"
+        },
+        {
+          "name": "KTV",
+          "description": "KTV"
+        },
+        {
+          "name": "订单页",
+          "description": "订单页"
+        },
+        {
+          "name": "想看指定电影/买指定电影票",
+          "description": "想看指定电影/买指定电影票"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "小红书",
+      "description": "小红书小程序",
+      "function": [
+        {
+          "name": "首页",
+          "description": "首页"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "樊登读书",
+      "description": "为用户提供书籍精华解读、课程、训练营、新职业等服务。",
+      "function": [
+        {
+          "name": "打开帆书",
+          "description": "打开帆书"
+        },
+        {
+          "name": "热门榜单",
+          "description": "热门榜单"
+        },
+        {
+          "name": "免费书籍",
+          "description": "免费书籍"
+        },
+        {
+          "name": "新书更新",
+          "description": "新书更新"
+        },
+        {
+          "name": "收藏和历史",
+          "description": "收藏和历史"
+        },
+        {
+          "name": "指定听/播放某书籍",
+          "description": "指定听/播放某书籍"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "百度网盘",
+      "description": "百度网盘小程序",
+      "function": [
+        {
+          "name": "首页",
+          "description": "首页"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "阅文短剧",
+      "description": "阅文短剧小程序，根据原著小说或故事改编的短篇电视剧或网络剧",
+      "function": [
+        {
+          "name": "短剧首页",
+          "description": "短剧首页"
+        },
+        {
+          "name": "短剧排行榜",
+          "description": "短剧排行榜"
+        },
+        {
+          "name": "最新短剧",
+          "description": "最新短剧"
+        },
+        {
+          "name": "我追的/最近看的短剧",
+          "description": "我追的/最近看的短剧"
+        },
+        {
+          "name": "我收藏的短剧",
+          "description": "我收藏的短剧"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "每日英语听力",
+      "description": "每日英语听力小程序",
+      "function": [
+        {
+          "name": "首页",
+          "description": "首页"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "哔哩哔哩",
+      "description": "哔哩哔哩小程序",
+      "function": [
+        {
+          "name": "首页",
+          "description": "首页"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "腾讯体育+",
+      "description": "腾讯体育小程序，可用于看球类、赛车、电竞等体育赛事和比赛的小程序",
+      "function": [
+        {
+          "name": "热门比赛/球赛",
+          "description": "热门比赛/球赛"
+        },
+        {
+          "name": "所有赛事",
+          "description": "所有赛事"
+        },
+        {
+          "name": "NBA",
+          "description": "NBA"
+        },
+        {
+          "name": "CBA",
+          "description": "CBA"
+        },
+        {
+          "name": "FIBA",
+          "description": "FIBA"
+        },
+        {
+          "name": "NCAA",
+          "description": "NCAA"
+        },
+        {
+          "name": "英超",
+          "description": "英超"
+        },
+        {
+          "name": "西甲",
+          "description": "西甲"
+        },
+        {
+          "name": "欧冠",
+          "description": "欧冠"
+        },
+        {
+          "name": "欧洲杯",
+          "description": "欧洲杯"
+        },
+        {
+          "name": "中超",
+          "description": "中超"
+        },
+        {
+          "name": "世界杯",
+          "description": "世界杯"
+        },
+        {
+          "name": "F1",
+          "description": "F1"
+        },
+        {
+          "name": "乒乓球",
+          "description": "乒乓球"
+        },
+        {
+          "name": "电竞",
+          "description": "电竞"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "腾讯新闻车机版",
+      "description": "腾讯新闻车机版 是一款快速、客观、公正地提供新闻资讯的中文免费小程序。用户可以随时随地掌握最新的资讯信息、最精彩的视觉图片、最犀利的时事评论、最响亮的名家之声，获得全新的移动新闻体验。",
+      "function": [
+        {
+          "name": "首页",
+          "description": "首页"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "粗门",
+      "description": "粗门小程序，一款包括飞盘、徒步、爬山、骑行、滑板、网球、露营、滑雪、攀岩、橄榄球等户外运动的小程",
+      "function": [
+        {
+          "name": "首页",
+          "description": "首页"
+        },
+        {
+          "name": "徒步路线",
+          "description": "徒步路线"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "腾讯日历",
+      "description": "腾讯日历小程序，可以查看日历预约、会议等日程信息",
+      "function": [
+        {
+          "name": "首页",
+          "description": "首页"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "美味不用等",
+      "description": "美味不用等小程序，可用于餐厅预约取号",
+      "function": [
+        {
+          "name": "首页",
+          "description": "首页"
+        },
+        {
+          "name": "附近餐厅取号",
+          "description": "附近餐厅取号"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "大众点评",
+      "description": "大众点评小程序，提供本地商家、消费评价和优惠信息的榜单和推荐服务，覆盖美食、电影、旅游、运动、酒店、KTV、丽人、结婚、亲子、家装等几乎所有本地生活服务行业。",
+      "function": [
+        {
+          "name": "首页",
+          "description": "首页"
+        },
+        {
+          "name": "找优惠",
+          "description": "找优惠"
+        },
+        {
+          "name": "找好店",
+          "description": "找好店"
+        },
+        {
+          "name": "账号页",
+          "description": "账号页"
+        },
+        {
+          "name": "附近美食",
+          "description": "附近美食"
+        },
+        {
+          "name": "景点/周边游",
+          "description": "景点/周边游"
+        },
+        {
+          "name": "酒店/民宿",
+          "description": "酒店/民宿"
+        },
+        {
+          "name": "休闲/玩乐",
+          "description": "休闲/玩乐"
+        },
+        {
+          "name": "电影",
+          "description": "电影"
+        },
+        {
+          "name": "美容/美发",
+          "description": "美容/美发"
+        },
+        {
+          "name": "KTV",
+          "description": "KTV"
+        },
+        {
+          "name": "健身/运动",
+          "description": "健身/运动"
+        },
+        {
+          "name": "家居/装修",
+          "description": "家居/装修"
+        },
+        {
+          "name": "按摩/足疗",
+          "description": "按摩/足疗"
+        },
+        {
+          "name": "热门榜",
+          "description": "热门榜"
+        },
+        {
+          "name": "好评榜",
+          "description": "好评榜"
+        },
+        {
+          "name": "口味榜",
+          "description": "口味榜"
+        },
+        {
+          "name": "必吃榜",
+          "description": "必吃榜"
+        },
+        {
+          "name": "网红店榜",
+          "description": "网红店榜"
+        },
+        {
+          "name": "必住榜",
+          "description": "必住榜"
+        },
+        {
+          "name": "必玩榜",
+          "description": "必玩榜"
+        },
+        {
+          "name": "黑珍珠榜",
+          "description": "黑珍珠榜"
+        },
+        {
+          "name": "我的订单",
+          "description": "我的订单"
+        },
+        {
+          "name": "我收藏的商户",
+          "description": "我收藏的商户"
+        },
+        {
+          "name": "火锅",
+          "description": "火锅"
+        },
+        {
+          "name": "自助餐",
+          "description": "自助餐"
+        },
+        {
+          "name": "西餐",
+          "description": "西餐"
+        },
+        {
+          "name": "川菜",
+          "description": "川菜"
+        },
+        {
+          "name": "搜索关键词",
+          "description": "搜索关键词"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "航旅纵横",
+      "description": "航旅纵横小程序，可用于航班/火车票的预定、行程和订单查询",
+      "function": [
+        {
+          "name": "首页",
+          "description": "首页"
+        },
+        {
+          "name": "机票预订/火车票预定",
+          "description": "机票预订/火车票预定"
+        },
+        {
+          "name": "出行行程",
+          "description": "出行行程"
+        },
+        {
+          "name": "我的订单",
+          "description": "我的订单"
+        },
+        {
+          "name": "关闭",
+          "description": "关闭或退出小程序"
+        }
+      ]
+    },{
+      "appName": "拒识",
+      "description": "对于无法回答的问题、车辆控制相关的提问，使用当前函数执行",
+      "function": [
+        {
+          "name": "拒绝识别页面",
+          "description": "对于无法回答的问题、车辆控制相关的提问，使用当前函数执行"
+        }
+      ]
+    }
+  ],
+  "intent": [
+    {
+      "intentName": "agent",
+      "description": "仅限瑞幸点单相关需求的意图"
+    },
+    {
+      "intentName": "page_direct",
+      "description": "页面直达意图，除了瑞幸点单之外的所有小程序功能都是这种类型"
+    },
+    {
+      "intentName": "unknown",
+      "description": "无法使用其他小程序满足的意图，拒识类型"
+    }
+  ]
+}
+

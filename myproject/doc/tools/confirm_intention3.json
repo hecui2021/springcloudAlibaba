@@ -1,0 +1,291 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "瑞幸",
+      "description": "瑞幸咖啡小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["首页", "点单", "我的订单", "咖啡钱包", "账户余额", "优惠卷", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "腾讯视频",
+      "description": "腾讯视频小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["首页推荐",  "短剧", "片库", "观看历史", "我的在追", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "猫眼电影",
+      "description": "猫眼电影小程序，可以用于电影、演唱会、音乐会等演出节目信息的查询和订票",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "猫眼电影小程序内各个页面",
+            "type": "string",
+            "enum": ["热映", "首页推荐", "演出", "演唱会", "音乐会", "音乐节", "脱口秀", "KTV", "订单页","想看指定电影/买指定电影票", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "小红书",
+      "description": "小红书小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小红书小程序内各个页面",
+            "type": "string",
+            "enum": ["首页", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "樊登读书",
+      "description": "为用户提供书籍精华解读、课程、训练营、新职业等服务。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["打开帆书", "热门榜单", "免费书籍", "新书更新", "收藏和历史", "指定听/播放某书籍", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "百度网盘",
+      "description": "百度网盘小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["首页", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "阅文短剧",
+      "description": "阅文短剧小程序，根据原著小说或故事改编的短篇电视剧或网络剧",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "阅文短剧小程序内各个页面",
+            "type": "string",
+            "enum": ["短剧首页", "短剧排行榜", "最新短剧", "我追的/最近看的短剧", "我收藏的短剧", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "每日英语听力",
+      "description": "每日英语听力小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "每日英语听力小程序内各个页面",
+            "type": "string",
+            "enum": ["首页", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "哔哩哔哩",
+      "description": "哔哩哔哩小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "哔哩哔哩小程序内各个页面",
+            "type": "string",
+            "enum": ["首页", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "腾讯体育+",
+      "description": "腾讯体育小程序，可用于看球类、赛车、电竞等体育赛事和比赛的小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "腾讯体育+小程序内各个页面",
+            "type": "string",
+            "enum": ["热门比赛/球赛", "所有赛事", "NBA","CBA","FIBA","NCAA","英超","西甲","欧冠","欧洲杯","中超","世界杯","F1","乒乓球","电竞", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "腾讯新闻车机版",
+      "description": "腾讯新闻车机版小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "腾讯新闻车机版小程序内各个页面",
+            "type": "string",
+            "enum": ["首页", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "粗门",
+      "description": "粗门小程序，一款包括飞盘、徒步、爬山、骑行、滑板、网球、露营、滑雪、攀岩、橄榄球等户外运动的小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "粗门小程序内各个页面",
+            "type": "string",
+            "enum": ["首页","徒步路线", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "腾讯日历",
+      "description": "腾讯日历小程序，可以查看日历预约、会议等日程信息",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "腾讯日历小程序内各个页面",
+            "type": "string",
+            "enum": ["首页", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "美味不用等",
+      "description": "美味不用等小程序，可用于餐厅预约取号",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "美味不用等小程序内各个页面",
+            "type": "string",
+            "enum": ["首页","附近餐厅取号", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "大众点评",
+      "description": "大众点评小程序，提供本地商家、消费评价和优惠信息的榜单和推荐服务，覆盖美食、电影、旅游、运动、酒店、KTV、丽人、结婚、亲子、家装等几乎所有本地生活服务行业。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "大众点评小程序内各个页面",
+            "type": "string",
+            "enum": ["首页","找优惠","找好店","账号页","附近美食","景点/周边游","酒店/民宿","休闲/玩乐","电影","美容/美发","KTV","健身/运动","家居/装修","按摩/足疗","热门榜","好评榜","口味榜","必吃榜","网红店榜","必住榜","必玩榜","黑珍珠榜","我的订单","我收藏的商户","火锅","自助餐","西餐","川菜","搜索关键词", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "航旅纵横",
+      "description": "航旅纵横小程序，可用于航班/火车票的预定、行程和订单查询",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "航旅纵横小程序内各个页面",
+            "type": "string",
+            "enum": ["首页","机票预订/火车票预定","出行行程","我的订单", "关闭"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "拒绝识别",
+      "description": "对于无法回答的问题、车控相关的提问，使用当前函数执行",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["拒绝识别页面"]
+          }
+        }
+      }
+    }
+  }
+]

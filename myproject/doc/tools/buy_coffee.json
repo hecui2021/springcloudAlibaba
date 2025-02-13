@@ -1,0 +1,41 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "buy_coffee",
+      "description": "买咖啡",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "num": {
+            "description": "数量",
+            "type": "string"
+          },
+          "size": {
+            "description": "尺寸",
+            "type": "string",
+            "enum": ["中杯", "大杯"]
+          },
+          "temperature": {
+            "description": "温度",
+            "type": "string",
+            "enum": ["冷", "热"]
+          },
+          "sugar": {
+            "description": "糖分",
+            "type": "string",
+            "enum": ["无糖", "三分糖", "五分糖", "七分糖", "全糖"]
+          },
+          "type": {
+            "description": "产品类型",
+            "type": "string",
+            "enum": ["美式咖啡", "星美乐", "拿铁"]
+          }
+        },
+        "required": [
+          "num", "size", "temperature", "sugar", "type"
+        ]
+      }
+    }
+  }
+]

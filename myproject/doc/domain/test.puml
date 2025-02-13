@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+group 获取二维码
+client -> BindRel:  获取二维码
+BindRel -> BindRel:  生成target=feedback类型的二维码
+BindRel --> client:  返回
+
+group 扫码反馈
+client -> 小程序: 扫码拉起小程序
+小程序 -> UserAcctMgr:  获取二维码信息
+UserAcctMgr --> 小程序:  返回
+小程序 -> 小程序:  拉起小程序反馈页面
+
+
+group 上传图片 (上传次数、大小、安全交易)
+小程序 -> MyCar:  上传图片
+MyCar -> COS: 上传图片
+MyCar <-- COS: 返回图片地址
+小程序 <-- MyCar:  返回图片地址
+
+
+group 提交反馈
+小程序 -> MyCar:  提交反馈
+MyCar -> FeedbackService: 提交反馈
+FeedbackService <-- FeedbackService: 保存
+MyCar <-- FeedbackService:  返回
+小程序 <-- MyCar:  返回
+
+
+group 运营处理
+运营平台 -> FeedbackService:  获取列表
+运营平台 <--> FeedbackService:  返回列表
+
+@enduml

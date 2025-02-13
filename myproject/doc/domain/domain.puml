@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+'actor       开发人员      as Foo1
+'participant 服务端       as Foo2
+'participant 七彩石       as Foo3
+'database redis缓存    as Foo4
+'participant IAS服务      as Foo5
+'participant 邮件企微      as Foo6
+
+autonumber
+
+group 配置域名白名单
+开发人员 -> 七彩石: 配置域名白名单列表
+开发人员 -> 七彩石: 配置企微及邮件通知模版
+开发人员 -> 服务端: 配置定时任务轮询时间
+
+autonumber
+group 证书提醒定时任务
+服务端 -> 七彩石: 获取域名白名单列表
+七彩石 --> 服务端: 返回域名白名单列表
+服务端 -> IAS:  根据域名白名单获取域名证书信息
+IAS --> 服务端:  返回域名证书信息
+服务端 -> redis:  域名证书是否两个月内过期
+redis --> 服务端:  域名证书两个月内过期
+服务端 -> 企微邮件:  发送企微和邮件通知
+服务端 -> redis:  缓存通知时间一天有效期
+
+
+@enduml
+

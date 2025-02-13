@@ -1,0 +1,96 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "get_weather",
+      "description": "查询天气",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "description": "城市名",
+            "type": "string"
+          }
+        },
+        "required": [
+          "city"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "action_refuse",
+      "description": "处理无法给出答案的问题，对于骂人的话拒绝回答",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "description": "城市名",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "buy_coffee",
+      "description": "买咖啡",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "num": {
+            "description": "数量",
+            "type": "string"
+          },
+          "size": {
+            "description": "尺寸",
+            "type": "string",
+            "enum": ["中杯", "大杯"]
+          },
+          "temperature": {
+            "description": "温度",
+            "type": "string",
+            "enum": ["冷", "热"]
+          },
+          "sugar": {
+            "description": "糖分",
+            "type": "string",
+            "enum": ["无糖", "三分糖", "五分糖", "七分糖", "全糖"]
+          },
+          "type": {
+            "description": "产品类型",
+            "type": "string",
+            "enum": ["美式咖啡", "星美乐", "拿铁"]
+          }
+        },
+        "required": [
+          "num", "size", "temperature", "sugar", "type"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "read_book",
+      "description": "樊登读书",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "contents": {
+            "description": "目录",
+            "type": "string",
+            "enum": ["热听榜", "限时免费", "本周新书", "我的"]
+          }
+        },
+        "required": [
+          "contents"
+        ]
+      }
+    }
+  }
+]

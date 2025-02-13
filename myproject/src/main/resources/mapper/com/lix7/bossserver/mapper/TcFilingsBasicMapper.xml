@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lix7.bossserver.mapper.TcFilingsBasicMapper">
+  <resultMap id="BaseResultMap" type="com.lix7.bossserver.pojo.TcFilingsBasic">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="dms_id" jdbcType="BIGINT" property="dmsId" />
+    <result column="ysid" jdbcType="BIGINT" property="ysid" />
+    <result column="bm" jdbcType="VARCHAR" property="bm" />
+    <result column="shengid" jdbcType="BIGINT" property="shengid" />
+    <result column="shengjc" jdbcType="VARCHAR" property="shengjc" />
+    <result column="dwflid" jdbcType="BIGINT" property="dwflid" />
+    <result column="pid" jdbcType="BIGINT" property="pid" />
+    <result column="mc" jdbcType="VARCHAR" property="mc" />
+    <result column="ssdxlx" jdbcType="BIGINT" property="ssdxlx" />
+    <result column="sfqzsp" jdbcType="BIGINT" property="sfqzsp" />
+    <result column="lx" jdbcType="BIGINT" property="lx" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="sfyx" jdbcType="BIGINT" property="sfyx" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, type, dms_id, ysid, bm, shengid, shengjc, dwflid, pid, mc, ssdxlx, sfqzsp, lx, 
+    bz, sfyx, version, is_delete, create_time, update_time, create_by, update_by
+  </sql>
+  <select id="selectByExample" parameterType="com.lix7.bossserver.pojo.TcFilingsBasicExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tc_filings_basic
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tc_filings_basic
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tc_filings_basic
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lix7.bossserver.pojo.TcFilingsBasicExample">
+    delete from tc_filings_basic
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lix7.bossserver.pojo.TcFilingsBasic">
+    insert into tc_filings_basic (id, type, dms_id, 
+      ysid, bm, shengid, shengjc, 
+      dwflid, pid, mc, ssdxlx, 
+      sfqzsp, lx, bz, sfyx, 
+      version, is_delete, create_time, 
+      update_time, create_by, update_by
+      )
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{dmsId,jdbcType=BIGINT}, 
+      #{ysid,jdbcType=BIGINT}, #{bm,jdbcType=VARCHAR}, #{shengid,jdbcType=BIGINT}, #{shengjc,jdbcType=VARCHAR}, 
+      #{dwflid,jdbcType=BIGINT}, #{pid,jdbcType=BIGINT}, #{mc,jdbcType=VARCHAR}, #{ssdxlx,jdbcType=BIGINT}, 
+      #{sfqzsp,jdbcType=BIGINT}, #{lx,jdbcType=BIGINT}, #{bz,jdbcType=VARCHAR}, #{sfyx,jdbcType=BIGINT}, 
+      #{version,jdbcType=VARCHAR}, #{isDelete,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lix7.bossserver.pojo.TcFilingsBasic">
+    insert into tc_filings_basic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="dmsId != null">
+        dms_id,
+      </if>
+      <if test="ysid != null">
+        ysid,
+      </if>
+      <if test="bm != null">
+        bm,
+      </if>
+      <if test="shengid != null">
+        shengid,
+      </if>
+      <if test="shengjc != null">
+        shengjc,
+      </if>
+      <if test="dwflid != null">
+        dwflid,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="mc != null">
+        mc,
+      </if>
+      <if test="ssdxlx != null">
+        ssdxlx,
+      </if>
+      <if test="sfqzsp != null">
+        sfqzsp,
+      </if>
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="bz != null">
+        bz,
+      </if>
+      <if test="sfyx != null">
+        sfyx,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="dmsId != null">
+        #{dmsId,jdbcType=BIGINT},
+      </if>
+      <if test="ysid != null">
+        #{ysid,jdbcType=BIGINT},
+      </if>
+      <if test="bm != null">
+        #{bm,jdbcType=VARCHAR},
+      </if>
+      <if test="shengid != null">
+        #{shengid,jdbcType=BIGINT},
+      </if>
+      <if test="shengjc != null">
+        #{shengjc,jdbcType=VARCHAR},
+      </if>
+      <if test="dwflid != null">
+        #{dwflid,jdbcType=BIGINT},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="mc != null">
+        #{mc,jdbcType=VARCHAR},
+      </if>
+      <if test="ssdxlx != null">
+        #{ssdxlx,jdbcType=BIGINT},
+      </if>
+      <if test="sfqzsp != null">
+        #{sfqzsp,jdbcType=BIGINT},
+      </if>
+      <if test="lx != null">
+        #{lx,jdbcType=BIGINT},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="sfyx != null">
+        #{sfyx,jdbcType=BIGINT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lix7.bossserver.pojo.TcFilingsBasicExample" resultType="java.lang.Long">
+    select count(*) from tc_filings_basic
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tc_filings_basic
+    <set>
+      <if test="row.id != null">
+        id = #{row.id,jdbcType=INTEGER},
+      </if>
+      <if test="row.type != null">
+        type = #{row.type,jdbcType=INTEGER},
+      </if>
+      <if test="row.dmsId != null">
+        dms_id = #{row.dmsId,jdbcType=BIGINT},
+      </if>
+      <if test="row.ysid != null">
+        ysid = #{row.ysid,jdbcType=BIGINT},
+      </if>
+      <if test="row.bm != null">
+        bm = #{row.bm,jdbcType=VARCHAR},
+      </if>
+      <if test="row.shengid != null">
+        shengid = #{row.shengid,jdbcType=BIGINT},
+      </if>
+      <if test="row.shengjc != null">
+        shengjc = #{row.shengjc,jdbcType=VARCHAR},
+      </if>
+      <if test="row.dwflid != null">
+        dwflid = #{row.dwflid,jdbcType=BIGINT},
+      </if>
+      <if test="row.pid != null">
+        pid = #{row.pid,jdbcType=BIGINT},
+      </if>
+      <if test="row.mc != null">
+        mc = #{row.mc,jdbcType=VARCHAR},
+      </if>
+      <if test="row.ssdxlx != null">
+        ssdxlx = #{row.ssdxlx,jdbcType=BIGINT},
+      </if>
+      <if test="row.sfqzsp != null">
+        sfqzsp = #{row.sfqzsp,jdbcType=BIGINT},
+      </if>
+      <if test="row.lx != null">
+        lx = #{row.lx,jdbcType=BIGINT},
+      </if>
+      <if test="row.bz != null">
+        bz = #{row.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="row.sfyx != null">
+        sfyx = #{row.sfyx,jdbcType=BIGINT},
+      </if>
+      <if test="row.version != null">
+        version = #{row.version,jdbcType=VARCHAR},
+      </if>
+      <if test="row.isDelete != null">
+        is_delete = #{row.isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="row.createTime != null">
+        create_time = #{row.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="row.updateTime != null">
+        update_time = #{row.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="row.createBy != null">
+        create_by = #{row.createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="row.updateBy != null">
+        update_by = #{row.updateBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tc_filings_basic
+    set id = #{row.id,jdbcType=INTEGER},
+      type = #{row.type,jdbcType=INTEGER},
+      dms_id = #{row.dmsId,jdbcType=BIGINT},
+      ysid = #{row.ysid,jdbcType=BIGINT},
+      bm = #{row.bm,jdbcType=VARCHAR},
+      shengid = #{row.shengid,jdbcType=BIGINT},
+      shengjc = #{row.shengjc,jdbcType=VARCHAR},
+      dwflid = #{row.dwflid,jdbcType=BIGINT},
+      pid = #{row.pid,jdbcType=BIGINT},
+      mc = #{row.mc,jdbcType=VARCHAR},
+      ssdxlx = #{row.ssdxlx,jdbcType=BIGINT},
+      sfqzsp = #{row.sfqzsp,jdbcType=BIGINT},
+      lx = #{row.lx,jdbcType=BIGINT},
+      bz = #{row.bz,jdbcType=VARCHAR},
+      sfyx = #{row.sfyx,jdbcType=BIGINT},
+      version = #{row.version,jdbcType=VARCHAR},
+      is_delete = #{row.isDelete,jdbcType=TINYINT},
+      create_time = #{row.createTime,jdbcType=TIMESTAMP},
+      update_time = #{row.updateTime,jdbcType=TIMESTAMP},
+      create_by = #{row.createBy,jdbcType=VARCHAR},
+      update_by = #{row.updateBy,jdbcType=VARCHAR}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lix7.bossserver.pojo.TcFilingsBasic">
+    update tc_filings_basic
+    <set>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="dmsId != null">
+        dms_id = #{dmsId,jdbcType=BIGINT},
+      </if>
+      <if test="ysid != null">
+        ysid = #{ysid,jdbcType=BIGINT},
+      </if>
+      <if test="bm != null">
+        bm = #{bm,jdbcType=VARCHAR},
+      </if>
+      <if test="shengid != null">
+        shengid = #{shengid,jdbcType=BIGINT},
+      </if>
+      <if test="shengjc != null">
+        shengjc = #{shengjc,jdbcType=VARCHAR},
+      </if>
+      <if test="dwflid != null">
+        dwflid = #{dwflid,jdbcType=BIGINT},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="mc != null">
+        mc = #{mc,jdbcType=VARCHAR},
+      </if>
+      <if test="ssdxlx != null">
+        ssdxlx = #{ssdxlx,jdbcType=BIGINT},
+      </if>
+      <if test="sfqzsp != null">
+        sfqzsp = #{sfqzsp,jdbcType=BIGINT},
+      </if>
+      <if test="lx != null">
+        lx = #{lx,jdbcType=BIGINT},
+      </if>
+      <if test="bz != null">
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="sfyx != null">
+        sfyx = #{sfyx,jdbcType=BIGINT},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lix7.bossserver.pojo.TcFilingsBasic">
+    update tc_filings_basic
+    set type = #{type,jdbcType=INTEGER},
+      dms_id = #{dmsId,jdbcType=BIGINT},
+      ysid = #{ysid,jdbcType=BIGINT},
+      bm = #{bm,jdbcType=VARCHAR},
+      shengid = #{shengid,jdbcType=BIGINT},
+      shengjc = #{shengjc,jdbcType=VARCHAR},
+      dwflid = #{dwflid,jdbcType=BIGINT},
+      pid = #{pid,jdbcType=BIGINT},
+      mc = #{mc,jdbcType=VARCHAR},
+      ssdxlx = #{ssdxlx,jdbcType=BIGINT},
+      sfqzsp = #{sfqzsp,jdbcType=BIGINT},
+      lx = #{lx,jdbcType=BIGINT},
+      bz = #{bz,jdbcType=VARCHAR},
+      sfyx = #{sfyx,jdbcType=BIGINT},
+      version = #{version,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_by = #{updateBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

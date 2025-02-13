@@ -110,8 +110,8 @@ public final class HelloProto {
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-//      if (isInitialized == 1) return true;
-//      if (isInitialized == 0) return false;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -120,21 +120,21 @@ public final class HelloProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-//      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-//      }
+      }
       getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
-//      if (size != -1) return size;
+      if (size != -1) return size;
 
       size = 0;
-//      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-//      }
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -416,9 +416,9 @@ public final class HelloProto {
                 break;
               } // case 10
               default: {
-//                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
-//                }
+                }
                 break;
               } // default:
             } // switch (tag)
@@ -672,21 +672,21 @@ public final class HelloProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-//      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(result_)) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(result_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, result_);
-//      }
+      }
       getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
-//      if (size != -1) return size;
+      if (size != -1) return size;
 
       size = 0;
-//      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(result_)) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(result_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, result_);
-//      }
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -968,9 +968,9 @@ public final class HelloProto {
                 break;
               } // case 10
               default: {
-//                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
-//                }
+                }
                 break;
               } // default:
             } // switch (tag)

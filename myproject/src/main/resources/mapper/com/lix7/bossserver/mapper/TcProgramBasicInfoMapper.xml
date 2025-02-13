@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lix7.bossserver.mapper.TcProgramBasicInfoMapper">
+  <resultMap id="BaseResultMap" type="com.lix7.bossserver.pojo.TcProgramBasicInfo">
+    <id column="program_id" jdbcType="VARCHAR" property="programId" />
+    <result column="program_name" jdbcType="VARCHAR" property="programName" />
+    <result column="program_abbreviation" jdbcType="VARCHAR" property="programAbbreviation" />
+    <result column="program_en_name" jdbcType="VARCHAR" property="programEnName" />
+    <result column="icon_key" jdbcType="VARCHAR" property="iconKey" />
+    <result column="program_intro" jdbcType="VARCHAR" property="programIntro" />
+    <result column="program_subheading" jdbcType="VARCHAR" property="programSubheading" />
+    <result column="program_poster" jdbcType="VARCHAR" property="programPoster" />
+    <result column="program_big_poster" jdbcType="VARCHAR" property="programBigPoster" />
+    <result column="program_type" jdbcType="TINYINT" property="programType" />
+    <result column="vendor_type" jdbcType="TINYINT" property="vendorType" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="category_id" jdbcType="VARCHAR" property="categoryId" />
+    <result column="category_first_id" jdbcType="VARCHAR" property="categoryFirstId" />
+    <result column="category_second_id" jdbcType="VARCHAR" property="categorySecondId" />
+    <result column="program_app_id" jdbcType="VARCHAR" property="programAppId" />
+    <result column="program_secret_id" jdbcType="VARCHAR" property="programSecretId" />
+    <result column="priv_pkg_name" jdbcType="VARCHAR" property="privPkgName" />
+    <result column="online_version" jdbcType="VARCHAR" property="onlineVersion" />
+    <result column="online_version_id" jdbcType="VARCHAR" property="onlineVersionId" />
+    <result column="priority" jdbcType="INTEGER" property="priority" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="developer_id" jdbcType="VARCHAR" property="developerId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    program_id, program_name, program_abbreviation, program_en_name, icon_key, program_intro, 
+    program_subheading, program_poster, program_big_poster, program_type, vendor_type, 
+    category, category_id, category_first_id, category_second_id, program_app_id, program_secret_id, 
+    priv_pkg_name, online_version, online_version_id, priority, is_delete, create_by, 
+    create_time, update_by, update_time, developer_id
+  </sql>
+  <select id="selectByExample" parameterType="com.lix7.bossserver.pojo.TcProgramBasicInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tc_program_basic_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tc_program_basic_info
+    where program_id = #{programId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tc_program_basic_info
+    where program_id = #{programId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lix7.bossserver.pojo.TcProgramBasicInfoExample">
+    delete from tc_program_basic_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lix7.bossserver.pojo.TcProgramBasicInfo">
+    insert into tc_program_basic_info (program_id, program_name, program_abbreviation, 
+      program_en_name, icon_key, program_intro, 
+      program_subheading, program_poster, program_big_poster, 
+      program_type, vendor_type, category, 
+      category_id, category_first_id, category_second_id, 
+      program_app_id, program_secret_id, priv_pkg_name, 
+      online_version, online_version_id, priority, 
+      is_delete, create_by, create_time, 
+      update_by, update_time, developer_id
+      )
+    values (#{programId,jdbcType=VARCHAR}, #{programName,jdbcType=VARCHAR}, #{programAbbreviation,jdbcType=VARCHAR}, 
+      #{programEnName,jdbcType=VARCHAR}, #{iconKey,jdbcType=VARCHAR}, #{programIntro,jdbcType=VARCHAR}, 
+      #{programSubheading,jdbcType=VARCHAR}, #{programPoster,jdbcType=VARCHAR}, #{programBigPoster,jdbcType=VARCHAR}, 
+      #{programType,jdbcType=TINYINT}, #{vendorType,jdbcType=TINYINT}, #{category,jdbcType=VARCHAR}, 
+      #{categoryId,jdbcType=VARCHAR}, #{categoryFirstId,jdbcType=VARCHAR}, #{categorySecondId,jdbcType=VARCHAR}, 
+      #{programAppId,jdbcType=VARCHAR}, #{programSecretId,jdbcType=VARCHAR}, #{privPkgName,jdbcType=VARCHAR}, 
+      #{onlineVersion,jdbcType=VARCHAR}, #{onlineVersionId,jdbcType=VARCHAR}, #{priority,jdbcType=INTEGER}, 
+      #{isDelete,jdbcType=TINYINT}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{developerId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lix7.bossserver.pojo.TcProgramBasicInfo">
+    insert into tc_program_basic_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="programId != null">
+        program_id,
+      </if>
+      <if test="programName != null">
+        program_name,
+      </if>
+      <if test="programAbbreviation != null">
+        program_abbreviation,
+      </if>
+      <if test="programEnName != null">
+        program_en_name,
+      </if>
+      <if test="iconKey != null">
+        icon_key,
+      </if>
+      <if test="programIntro != null">
+        program_intro,
+      </if>
+      <if test="programSubheading != null">
+        program_subheading,
+      </if>
+      <if test="programPoster != null">
+        program_poster,
+      </if>
+      <if test="programBigPoster != null">
+        program_big_poster,
+      </if>
+      <if test="programType != null">
+        program_type,
+      </if>
+      <if test="vendorType != null">
+        vendor_type,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="categoryFirstId != null">
+        category_first_id,
+      </if>
+      <if test="categorySecondId != null">
+        category_second_id,
+      </if>
+      <if test="programAppId != null">
+        program_app_id,
+      </if>
+      <if test="programSecretId != null">
+        program_secret_id,
+      </if>
+      <if test="privPkgName != null">
+        priv_pkg_name,
+      </if>
+      <if test="onlineVersion != null">
+        online_version,
+      </if>
+      <if test="onlineVersionId != null">
+        online_version_id,
+      </if>
+      <if test="priority != null">
+        priority,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="developerId != null">
+        developer_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="programId != null">
+        #{programId,jdbcType=VARCHAR},
+      </if>
+      <if test="programName != null">
+        #{programName,jdbcType=VARCHAR},
+      </if>
+      <if test="programAbbreviation != null">
+        #{programAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="programEnName != null">
+        #{programEnName,jdbcType=VARCHAR},
+      </if>
+      <if test="iconKey != null">
+        #{iconKey,jdbcType=VARCHAR},
+      </if>
+      <if test="programIntro != null">
+        #{programIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="programSubheading != null">
+        #{programSubheading,jdbcType=VARCHAR},
+      </if>
+      <if test="programPoster != null">
+        #{programPoster,jdbcType=VARCHAR},
+      </if>
+      <if test="programBigPoster != null">
+        #{programBigPoster,jdbcType=VARCHAR},
+      </if>
+      <if test="programType != null">
+        #{programType,jdbcType=TINYINT},
+      </if>
+      <if test="vendorType != null">
+        #{vendorType,jdbcType=TINYINT},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryFirstId != null">
+        #{categoryFirstId,jdbcType=VARCHAR},
+      </if>
+      <if test="categorySecondId != null">
+        #{categorySecondId,jdbcType=VARCHAR},
+      </if>
+      <if test="programAppId != null">
+        #{programAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="programSecretId != null">
+        #{programSecretId,jdbcType=VARCHAR},
+      </if>
+      <if test="privPkgName != null">
+        #{privPkgName,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineVersion != null">
+        #{onlineVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineVersionId != null">
+        #{onlineVersionId,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="developerId != null">
+        #{developerId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lix7.bossserver.pojo.TcProgramBasicInfoExample" resultType="java.lang.Long">
+    select count(*) from tc_program_basic_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tc_program_basic_info
+    <set>
+      <if test="row.programId != null">
+        program_id = #{row.programId,jdbcType=VARCHAR},
+      </if>
+      <if test="row.programName != null">
+        program_name = #{row.programName,jdbcType=VARCHAR},
+      </if>
+      <if test="row.programAbbreviation != null">
+        program_abbreviation = #{row.programAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="row.programEnName != null">
+        program_en_name = #{row.programEnName,jdbcType=VARCHAR},
+      </if>
+      <if test="row.iconKey != null">
+        icon_key = #{row.iconKey,jdbcType=VARCHAR},
+      </if>
+      <if test="row.programIntro != null">
+        program_intro = #{row.programIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="row.programSubheading != null">
+        program_subheading = #{row.programSubheading,jdbcType=VARCHAR},
+      </if>
+      <if test="row.programPoster != null">
+        program_poster = #{row.programPoster,jdbcType=VARCHAR},
+      </if>
+      <if test="row.programBigPoster != null">
+        program_big_poster = #{row.programBigPoster,jdbcType=VARCHAR},
+      </if>
+      <if test="row.programType != null">
+        program_type = #{row.programType,jdbcType=TINYINT},
+      </if>
+      <if test="row.vendorType != null">
+        vendor_type = #{row.vendorType,jdbcType=TINYINT},
+      </if>
+      <if test="row.category != null">
+        category = #{row.category,jdbcType=VARCHAR},
+      </if>
+      <if test="row.categoryId != null">
+        category_id = #{row.categoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="row.categoryFirstId != null">
+        category_first_id = #{row.categoryFirstId,jdbcType=VARCHAR},
+      </if>
+      <if test="row.categorySecondId != null">
+        category_second_id = #{row.categorySecondId,jdbcType=VARCHAR},
+      </if>
+      <if test="row.programAppId != null">
+        program_app_id = #{row.programAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="row.programSecretId != null">
+        program_secret_id = #{row.programSecretId,jdbcType=VARCHAR},
+      </if>
+      <if test="row.privPkgName != null">
+        priv_pkg_name = #{row.privPkgName,jdbcType=VARCHAR},
+      </if>
+      <if test="row.onlineVersion != null">
+        online_version = #{row.onlineVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="row.onlineVersionId != null">
+        online_version_id = #{row.onlineVersionId,jdbcType=VARCHAR},
+      </if>
+      <if test="row.priority != null">
+        priority = #{row.priority,jdbcType=INTEGER},
+      </if>
+      <if test="row.isDelete != null">
+        is_delete = #{row.isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="row.createBy != null">
+        create_by = #{row.createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="row.createTime != null">
+        create_time = #{row.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="row.updateBy != null">
+        update_by = #{row.updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="row.updateTime != null">
+        update_time = #{row.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="row.developerId != null">
+        developer_id = #{row.developerId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tc_program_basic_info
+    set program_id = #{row.programId,jdbcType=VARCHAR},
+      program_name = #{row.programName,jdbcType=VARCHAR},
+      program_abbreviation = #{row.programAbbreviation,jdbcType=VARCHAR},
+      program_en_name = #{row.programEnName,jdbcType=VARCHAR},
+      icon_key = #{row.iconKey,jdbcType=VARCHAR},
+      program_intro = #{row.programIntro,jdbcType=VARCHAR},
+      program_subheading = #{row.programSubheading,jdbcType=VARCHAR},
+      program_poster = #{row.programPoster,jdbcType=VARCHAR},
+      program_big_poster = #{row.programBigPoster,jdbcType=VARCHAR},
+      program_type = #{row.programType,jdbcType=TINYINT},
+      vendor_type = #{row.vendorType,jdbcType=TINYINT},
+      category = #{row.category,jdbcType=VARCHAR},
+      category_id = #{row.categoryId,jdbcType=VARCHAR},
+      category_first_id = #{row.categoryFirstId,jdbcType=VARCHAR},
+      category_second_id = #{row.categorySecondId,jdbcType=VARCHAR},
+      program_app_id = #{row.programAppId,jdbcType=VARCHAR},
+      program_secret_id = #{row.programSecretId,jdbcType=VARCHAR},
+      priv_pkg_name = #{row.privPkgName,jdbcType=VARCHAR},
+      online_version = #{row.onlineVersion,jdbcType=VARCHAR},
+      online_version_id = #{row.onlineVersionId,jdbcType=VARCHAR},
+      priority = #{row.priority,jdbcType=INTEGER},
+      is_delete = #{row.isDelete,jdbcType=TINYINT},
+      create_by = #{row.createBy,jdbcType=VARCHAR},
+      create_time = #{row.createTime,jdbcType=TIMESTAMP},
+      update_by = #{row.updateBy,jdbcType=VARCHAR},
+      update_time = #{row.updateTime,jdbcType=TIMESTAMP},
+      developer_id = #{row.developerId,jdbcType=VARCHAR}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lix7.bossserver.pojo.TcProgramBasicInfo">
+    update tc_program_basic_info
+    <set>
+      <if test="programName != null">
+        program_name = #{programName,jdbcType=VARCHAR},
+      </if>
+      <if test="programAbbreviation != null">
+        program_abbreviation = #{programAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="programEnName != null">
+        program_en_name = #{programEnName,jdbcType=VARCHAR},
+      </if>
+      <if test="iconKey != null">
+        icon_key = #{iconKey,jdbcType=VARCHAR},
+      </if>
+      <if test="programIntro != null">
+        program_intro = #{programIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="programSubheading != null">
+        program_subheading = #{programSubheading,jdbcType=VARCHAR},
+      </if>
+      <if test="programPoster != null">
+        program_poster = #{programPoster,jdbcType=VARCHAR},
+      </if>
+      <if test="programBigPoster != null">
+        program_big_poster = #{programBigPoster,jdbcType=VARCHAR},
+      </if>
+      <if test="programType != null">
+        program_type = #{programType,jdbcType=TINYINT},
+      </if>
+      <if test="vendorType != null">
+        vendor_type = #{vendorType,jdbcType=TINYINT},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryFirstId != null">
+        category_first_id = #{categoryFirstId,jdbcType=VARCHAR},
+      </if>
+      <if test="categorySecondId != null">
+        category_second_id = #{categorySecondId,jdbcType=VARCHAR},
+      </if>
+      <if test="programAppId != null">
+        program_app_id = #{programAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="programSecretId != null">
+        program_secret_id = #{programSecretId,jdbcType=VARCHAR},
+      </if>
+      <if test="privPkgName != null">
+        priv_pkg_name = #{privPkgName,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineVersion != null">
+        online_version = #{onlineVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineVersionId != null">
+        online_version_id = #{onlineVersionId,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        priority = #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="developerId != null">
+        developer_id = #{developerId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where program_id = #{programId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lix7.bossserver.pojo.TcProgramBasicInfo">
+    update tc_program_basic_info
+    set program_name = #{programName,jdbcType=VARCHAR},
+      program_abbreviation = #{programAbbreviation,jdbcType=VARCHAR},
+      program_en_name = #{programEnName,jdbcType=VARCHAR},
+      icon_key = #{iconKey,jdbcType=VARCHAR},
+      program_intro = #{programIntro,jdbcType=VARCHAR},
+      program_subheading = #{programSubheading,jdbcType=VARCHAR},
+      program_poster = #{programPoster,jdbcType=VARCHAR},
+      program_big_poster = #{programBigPoster,jdbcType=VARCHAR},
+      program_type = #{programType,jdbcType=TINYINT},
+      vendor_type = #{vendorType,jdbcType=TINYINT},
+      category = #{category,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=VARCHAR},
+      category_first_id = #{categoryFirstId,jdbcType=VARCHAR},
+      category_second_id = #{categorySecondId,jdbcType=VARCHAR},
+      program_app_id = #{programAppId,jdbcType=VARCHAR},
+      program_secret_id = #{programSecretId,jdbcType=VARCHAR},
+      priv_pkg_name = #{privPkgName,jdbcType=VARCHAR},
+      online_version = #{onlineVersion,jdbcType=VARCHAR},
+      online_version_id = #{onlineVersionId,jdbcType=VARCHAR},
+      priority = #{priority,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      developer_id = #{developerId,jdbcType=VARCHAR}
+    where program_id = #{programId,jdbcType=VARCHAR}
+  </update>
+</mapper>

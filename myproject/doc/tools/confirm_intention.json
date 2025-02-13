@@ -1,0 +1,44 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "agent_scene",
+      "description": "需要与用户进行多轮对话以进一步明确操作细节的复杂行为场景，明确用户是点单场景下才为agent_scene，如'给我点一杯星巴克的冰美式'",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "app": {
+            "description": "小程序名称",
+            "type": "string",
+            "enum": ["瑞幸"]
+          },
+          "function": {
+            "description": "功能",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "page_direct",
+      "description": "无需与用户进行多轮对话,可以直接从提供的app元数据中分析并匹配功能，从而实现直达场景",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "app": {
+            "description": "小程序名称",
+            "type": "string",
+            "enum": ["瑞幸", "樊登读书", "百度网盘", "b站", "阅文短剧", "腾讯体育", "每日英语听力", "瑞幸", "大众点评", "猫眼电影"]
+          },
+          "function": {
+            "description": "功能",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+]

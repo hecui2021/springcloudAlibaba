@@ -1,0 +1,268 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "腾讯视频",
+      "description": "腾讯视频小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["首页推荐", "藏海花", "宿敌", "黑白森林", "短剧", "", "", "", ""]
+          },
+          "type": {
+            "description": "固定为page_direct",
+            "type": "string",
+            "enum": ["page_direct"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "",
+      "description": "小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["", "", "", "", ""]
+          },
+          "type": {
+            "description": "固定为page_direct",
+            "type": "string",
+            "enum": ["page_direct"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "",
+      "description": "小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["", "", "", "", ""]
+          },
+          "type": {
+            "description": "固定为page_direct",
+            "type": "string",
+            "enum": ["page_direct"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "",
+      "description": "小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["", "", "", "", ""]
+          },
+          "type": {
+            "description": "固定为page_direct",
+            "type": "string",
+            "enum": ["page_direct"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "瑞幸",
+      "description": "瑞幸咖啡小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["首页", "点单", "我的订单", "咖啡钱包", "账户余额", "优惠卷"]
+          },
+          "type": {
+            "description": "意图类型，根据是否需要与用户进行多轮对话以进一步明确操作细节的复杂行为场景来区分是多轮对话模式（agent）还是页面直达模式（page）",
+            "type": "string",
+            "enum": ["agent", "page_direct"]
+          }
+        },"required": [
+          "type"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "樊登读书",
+      "description": "樊登读书小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["热听榜", "限时免费", "本周新书", "历史记录", "内容页"]
+          },
+          "type": {
+            "description": "固定为page_direct",
+            "type": "string",
+            "enum": ["page_direct"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "百度网盘",
+      "description": "百度网盘小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["首页"]
+          },
+          "type": {
+            "description": "固定为page_direct",
+            "type": "string",
+            "enum": ["page_direct"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "哔哩哔哩",
+      "description": "哔哩哔哩小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "哔哩哔哩小程序内各个页面",
+            "type": "string",
+            "enum": ["首页"]
+          },
+          "type": {
+            "description": "固定为page_direct",
+            "type": "string",
+            "enum": ["page_direct"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "阅文短剧",
+      "description": "阅文短剧小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "阅文短剧小程序内各个页面",
+            "type": "string",
+            "enum": ["小剧场", "排行榜", "最新短剧"]
+          },
+          "type": {
+            "description": "固定为page_direct",
+            "type": "string",
+            "enum": ["page_direct"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "腾讯体育+",
+      "description": "腾讯体育+小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "腾讯体育+小程序内各个页面",
+            "type": "string",
+            "enum": ["热门比赛", "NBA赛事", "所有赛事"]
+          },
+          "type": {
+            "description": "固定为page_direct",
+            "type": "string",
+            "enum": ["page_direct"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "每日英语听力",
+      "description": "每日英语听力小程序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "每日英语听力小程序内各个页面",
+            "type": "string",
+            "enum": ["首页"]
+          },
+          "type": {
+            "description": "固定为page_direct",
+            "type": "string",
+            "enum": ["page_direct"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "拒绝识别",
+      "description": "对于无法回答的问题，使用当前函数执行",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "小程序内各个页面",
+            "type": "string",
+            "enum": ["拒绝识别页面"]
+          },
+          "type": {
+            "description": "工具无法回答的问题，返回unknown",
+            "type": "string",
+            "enum": ["unknown"]
+          }
+        }
+      }
+    }
+  }
+]

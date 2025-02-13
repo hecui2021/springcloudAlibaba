@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lix7.bossserver.mapper.TcFilingsDownloadRecordMapper">
+  <resultMap id="BaseResultMap" type="com.lix7.bossserver.pojo.TcFilingsDownloadRecord">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="request_id" jdbcType="VARCHAR" property="requestId" />
+    <result column="return_file_name" jdbcType="VARCHAR" property="returnFileName" />
+    <result column="beian_info_hash" jdbcType="VARCHAR" property="beianInfoHash" />
+    <result column="compression_format" jdbcType="INTEGER" property="compressionFormat" />
+    <result column="encrypt_algorithm" jdbcType="INTEGER" property="encryptAlgorithm" />
+    <result column="hash_algorithm" jdbcType="INTEGER" property="hashAlgorithm" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.lix7.bossserver.pojo.TcFilingsDownloadRecord">
+    <result column="beian_info" jdbcType="LONGVARCHAR" property="beianInfo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, request_id, return_file_name, beian_info_hash, compression_format, encrypt_algorithm, 
+    hash_algorithm, is_delete, create_time, update_time, create_by, update_by
+  </sql>
+  <sql id="Blob_Column_List">
+    beian_info
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.lix7.bossserver.pojo.TcFilingsDownloadRecordExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tc_filings_download_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.lix7.bossserver.pojo.TcFilingsDownloadRecordExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tc_filings_download_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tc_filings_download_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tc_filings_download_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lix7.bossserver.pojo.TcFilingsDownloadRecordExample">
+    delete from tc_filings_download_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lix7.bossserver.pojo.TcFilingsDownloadRecord">
+    insert into tc_filings_download_record (id, request_id, return_file_name, 
+      beian_info_hash, compression_format, encrypt_algorithm, 
+      hash_algorithm, is_delete, create_time, 
+      update_time, create_by, update_by, 
+      beian_info)
+    values (#{id,jdbcType=INTEGER}, #{requestId,jdbcType=VARCHAR}, #{returnFileName,jdbcType=VARCHAR}, 
+      #{beianInfoHash,jdbcType=VARCHAR}, #{compressionFormat,jdbcType=INTEGER}, #{encryptAlgorithm,jdbcType=INTEGER}, 
+      #{hashAlgorithm,jdbcType=INTEGER}, #{isDelete,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, 
+      #{beianInfo,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lix7.bossserver.pojo.TcFilingsDownloadRecord">
+    insert into tc_filings_download_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="requestId != null">
+        request_id,
+      </if>
+      <if test="returnFileName != null">
+        return_file_name,
+      </if>
+      <if test="beianInfoHash != null">
+        beian_info_hash,
+      </if>
+      <if test="compressionFormat != null">
+        compression_format,
+      </if>
+      <if test="encryptAlgorithm != null">
+        encrypt_algorithm,
+      </if>
+      <if test="hashAlgorithm != null">
+        hash_algorithm,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="beianInfo != null">
+        beian_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="requestId != null">
+        #{requestId,jdbcType=VARCHAR},
+      </if>
+      <if test="returnFileName != null">
+        #{returnFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="beianInfoHash != null">
+        #{beianInfoHash,jdbcType=VARCHAR},
+      </if>
+      <if test="compressionFormat != null">
+        #{compressionFormat,jdbcType=INTEGER},
+      </if>
+      <if test="encryptAlgorithm != null">
+        #{encryptAlgorithm,jdbcType=INTEGER},
+      </if>
+      <if test="hashAlgorithm != null">
+        #{hashAlgorithm,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="beianInfo != null">
+        #{beianInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lix7.bossserver.pojo.TcFilingsDownloadRecordExample" resultType="java.lang.Long">
+    select count(*) from tc_filings_download_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tc_filings_download_record
+    <set>
+      <if test="row.id != null">
+        id = #{row.id,jdbcType=INTEGER},
+      </if>
+      <if test="row.requestId != null">
+        request_id = #{row.requestId,jdbcType=VARCHAR},
+      </if>
+      <if test="row.returnFileName != null">
+        return_file_name = #{row.returnFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="row.beianInfoHash != null">
+        beian_info_hash = #{row.beianInfoHash,jdbcType=VARCHAR},
+      </if>
+      <if test="row.compressionFormat != null">
+        compression_format = #{row.compressionFormat,jdbcType=INTEGER},
+      </if>
+      <if test="row.encryptAlgorithm != null">
+        encrypt_algorithm = #{row.encryptAlgorithm,jdbcType=INTEGER},
+      </if>
+      <if test="row.hashAlgorithm != null">
+        hash_algorithm = #{row.hashAlgorithm,jdbcType=INTEGER},
+      </if>
+      <if test="row.isDelete != null">
+        is_delete = #{row.isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="row.createTime != null">
+        create_time = #{row.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="row.updateTime != null">
+        update_time = #{row.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="row.createBy != null">
+        create_by = #{row.createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="row.updateBy != null">
+        update_by = #{row.updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="row.beianInfo != null">
+        beian_info = #{row.beianInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update tc_filings_download_record
+    set id = #{row.id,jdbcType=INTEGER},
+      request_id = #{row.requestId,jdbcType=VARCHAR},
+      return_file_name = #{row.returnFileName,jdbcType=VARCHAR},
+      beian_info_hash = #{row.beianInfoHash,jdbcType=VARCHAR},
+      compression_format = #{row.compressionFormat,jdbcType=INTEGER},
+      encrypt_algorithm = #{row.encryptAlgorithm,jdbcType=INTEGER},
+      hash_algorithm = #{row.hashAlgorithm,jdbcType=INTEGER},
+      is_delete = #{row.isDelete,jdbcType=TINYINT},
+      create_time = #{row.createTime,jdbcType=TIMESTAMP},
+      update_time = #{row.updateTime,jdbcType=TIMESTAMP},
+      create_by = #{row.createBy,jdbcType=VARCHAR},
+      update_by = #{row.updateBy,jdbcType=VARCHAR},
+      beian_info = #{row.beianInfo,jdbcType=LONGVARCHAR}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tc_filings_download_record
+    set id = #{row.id,jdbcType=INTEGER},
+      request_id = #{row.requestId,jdbcType=VARCHAR},
+      return_file_name = #{row.returnFileName,jdbcType=VARCHAR},
+      beian_info_hash = #{row.beianInfoHash,jdbcType=VARCHAR},
+      compression_format = #{row.compressionFormat,jdbcType=INTEGER},
+      encrypt_algorithm = #{row.encryptAlgorithm,jdbcType=INTEGER},
+      hash_algorithm = #{row.hashAlgorithm,jdbcType=INTEGER},
+      is_delete = #{row.isDelete,jdbcType=TINYINT},
+      create_time = #{row.createTime,jdbcType=TIMESTAMP},
+      update_time = #{row.updateTime,jdbcType=TIMESTAMP},
+      create_by = #{row.createBy,jdbcType=VARCHAR},
+      update_by = #{row.updateBy,jdbcType=VARCHAR}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lix7.bossserver.pojo.TcFilingsDownloadRecord">
+    update tc_filings_download_record
+    <set>
+      <if test="requestId != null">
+        request_id = #{requestId,jdbcType=VARCHAR},
+      </if>
+      <if test="returnFileName != null">
+        return_file_name = #{returnFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="beianInfoHash != null">
+        beian_info_hash = #{beianInfoHash,jdbcType=VARCHAR},
+      </if>
+      <if test="compressionFormat != null">
+        compression_format = #{compressionFormat,jdbcType=INTEGER},
+      </if>
+      <if test="encryptAlgorithm != null">
+        encrypt_algorithm = #{encryptAlgorithm,jdbcType=INTEGER},
+      </if>
+      <if test="hashAlgorithm != null">
+        hash_algorithm = #{hashAlgorithm,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="beianInfo != null">
+        beian_info = #{beianInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lix7.bossserver.pojo.TcFilingsDownloadRecord">
+    update tc_filings_download_record
+    set request_id = #{requestId,jdbcType=VARCHAR},
+      return_file_name = #{returnFileName,jdbcType=VARCHAR},
+      beian_info_hash = #{beianInfoHash,jdbcType=VARCHAR},
+      compression_format = #{compressionFormat,jdbcType=INTEGER},
+      encrypt_algorithm = #{encryptAlgorithm,jdbcType=INTEGER},
+      hash_algorithm = #{hashAlgorithm,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      beian_info = #{beianInfo,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lix7.bossserver.pojo.TcFilingsDownloadRecord">
+    update tc_filings_download_record
+    set request_id = #{requestId,jdbcType=VARCHAR},
+      return_file_name = #{returnFileName,jdbcType=VARCHAR},
+      beian_info_hash = #{beianInfoHash,jdbcType=VARCHAR},
+      compression_format = #{compressionFormat,jdbcType=INTEGER},
+      encrypt_algorithm = #{encryptAlgorithm,jdbcType=INTEGER},
+      hash_algorithm = #{hashAlgorithm,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_by = #{updateBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

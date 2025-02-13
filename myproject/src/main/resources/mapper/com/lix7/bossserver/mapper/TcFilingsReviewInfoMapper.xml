@@ -1,0 +1,1019 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lix7.bossserver.mapper.TcFilingsReviewInfoMapper">
+  <resultMap id="BaseResultMap" type="com.lix7.bossserver.pojo.TcFilingsReviewInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="mainPart_name" jdbcType="VARCHAR" property="mainpartName" />
+    <result column="mainPart_tzr" jdbcType="VARCHAR" property="mainpartTzr" />
+    <result column="mainPart_zjlx" jdbcType="BIGINT" property="mainpartZjlx" />
+    <result column="mainPart_zjhm" jdbcType="VARCHAR" property="mainpartZjhm" />
+    <result column="mainPart_zjzs" jdbcType="VARCHAR" property="mainpartZjzs" />
+    <result column="mainPart_shengid" jdbcType="BIGINT" property="mainpartShengid" />
+    <result column="mainPart_shiid" jdbcType="BIGINT" property="mainpartShiid" />
+    <result column="mainPart_xianid" jdbcType="BIGINT" property="mainpartXianid" />
+    <result column="mainPart_xxdz" jdbcType="VARCHAR" property="mainpartXxdz" />
+    <result column="mainPart_fzrXm" jdbcType="VARCHAR" property="mainpartFzrxm" />
+    <result column="mainPart_fzrXjlx" jdbcType="VARCHAR" property="mainpartFzrxjlx" />
+    <result column="mainPart_fzrZjhm" jdbcType="VARCHAR" property="mainpartFzrzjhm" />
+    <result column="mainPart_fzrDzyj" jdbcType="VARCHAR" property="mainpartFzrdzyj" />
+    <result column="mainPart_fzrLxfs1" jdbcType="VARCHAR" property="mainpartFzrlxfs1" />
+    <result column="mainPart_fzrLxfs2" jdbcType="VARCHAR" property="mainpartFzrlxfs2" />
+    <result column="mainPart_fzrYjdh" jdbcType="VARCHAR" property="mainpartFzryjdh" />
+    <result column="mainPart_fzrJstxLx" jdbcType="BIGINT" property="mainpartFzrjstxlx" />
+    <result column="mainPart_fzrJstxZh" jdbcType="VARCHAR" property="mainpartFzrjstxzh" />
+    <result column="mainPart_fzrZjyxq" jdbcType="VARCHAR" property="mainpartFzrzjyxq" />
+    <result column="mainPart_bbfs" jdbcType="BIGINT" property="mainpartBbfs" />
+    <result column="mainPart_bz" jdbcType="VARCHAR" property="mainpartBz" />
+    <result column="service_wzmc" jdbcType="VARCHAR" property="serviceWzmc" />
+    <result column="service_syurl" jdbcType="VARCHAR" property="serviceSyurl" />
+    <result column="service_nrlxId" jdbcType="BIGINT" property="serviceNrlxid" />
+    <result column="service_nrlxQzsph" jdbcType="VARCHAR" property="serviceNrlxqzsph" />
+    <result column="service_nrlxSpwj" jdbcType="VARCHAR" property="serviceNrlxspwj" />
+    <result column="service_fwnrId" jdbcType="VARCHAR" property="serviceFwnrid" />
+    <result column="service_fwlx" jdbcType="BIGINT" property="serviceFwlx" />
+    <result column="service_yylbId" jdbcType="BIGINT" property="serviceYylbid" />
+    <result column="service_fzrXm" jdbcType="VARCHAR" property="serviceFzrxm" />
+    <result column="service_fzrZjlx" jdbcType="VARCHAR" property="serviceFzrzjlx" />
+    <result column="service_fzrZjhm" jdbcType="VARCHAR" property="serviceFzrzjhm" />
+    <result column="service_fzrDzyj" jdbcType="VARCHAR" property="serviceFzrdzyj" />
+    <result column="service_fzrLxfs1" jdbcType="VARCHAR" property="serviceFzrlxfs1" />
+    <result column="service_fzrLxfs2" jdbcType="VARCHAR" property="serviceFzrlxfs2" />
+    <result column="service_fzrYjdh" jdbcType="VARCHAR" property="serviceFzryjdh" />
+    <result column="service_fzrJstxLx" jdbcType="BIGINT" property="serviceFzrjstxlx" />
+    <result column="service_fzrJstxZh" jdbcType="VARCHAR" property="serviceFzrjstxzh" />
+    <result column="service_fzrZjyxq" jdbcType="VARCHAR" property="serviceFzrzjyxq" />
+    <result column="service_wzBz" jdbcType="VARCHAR" property="serviceWzbz" />
+    <result column="service_xcxId" jdbcType="VARCHAR" property="serviceXcxid" />
+    <result column="annex_cjm" jdbcType="VARCHAR" property="annexCjm" />
+    <result column="annex_hyclbs" jdbcType="BIGINT" property="annexHyclbs" />
+    <result column="annex_fjwjgs" jdbcType="BIGINT" property="annexFjwjgs" />
+    <result column="annex_fjyt" jdbcType="BIGINT" property="annexFjyt" />
+    <result column="annex_fjnr" jdbcType="VARCHAR" property="annexFjnr" />
+    <result column="annex_fjssdxSsdxlx" jdbcType="BIGINT" property="annexFjssdxssdxlx" />
+    <result column="annex_fjssdxSsdxbs" jdbcType="VARCHAR" property="annexFjssdxssdxbs" />
+    <result column="annex_bz" jdbcType="VARCHAR" property="annexBz" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, status, mainPart_name, mainPart_tzr, mainPart_zjlx, mainPart_zjhm, mainPart_zjzs, 
+    mainPart_shengid, mainPart_shiid, mainPart_xianid, mainPart_xxdz, mainPart_fzrXm, 
+    mainPart_fzrXjlx, mainPart_fzrZjhm, mainPart_fzrDzyj, mainPart_fzrLxfs1, mainPart_fzrLxfs2, 
+    mainPart_fzrYjdh, mainPart_fzrJstxLx, mainPart_fzrJstxZh, mainPart_fzrZjyxq, mainPart_bbfs, 
+    mainPart_bz, service_wzmc, service_syurl, service_nrlxId, service_nrlxQzsph, service_nrlxSpwj, 
+    service_fwnrId, service_fwlx, service_yylbId, service_fzrXm, service_fzrZjlx, service_fzrZjhm, 
+    service_fzrDzyj, service_fzrLxfs1, service_fzrLxfs2, service_fzrYjdh, service_fzrJstxLx, 
+    service_fzrJstxZh, service_fzrZjyxq, service_wzBz, service_xcxId, annex_cjm, annex_hyclbs, 
+    annex_fjwjgs, annex_fjyt, annex_fjnr, annex_fjssdxSsdxlx, annex_fjssdxSsdxbs, annex_bz, 
+    is_delete, create_time, update_time, create_by, update_by
+  </sql>
+  <select id="selectByExample" parameterType="com.lix7.bossserver.pojo.TcFilingsReviewInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tc_filings_review_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tc_filings_review_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tc_filings_review_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lix7.bossserver.pojo.TcFilingsReviewInfoExample">
+    delete from tc_filings_review_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lix7.bossserver.pojo.TcFilingsReviewInfo">
+    insert into tc_filings_review_info (id, status, mainPart_name, 
+      mainPart_tzr, mainPart_zjlx, mainPart_zjhm, 
+      mainPart_zjzs, mainPart_shengid, mainPart_shiid, 
+      mainPart_xianid, mainPart_xxdz, mainPart_fzrXm, 
+      mainPart_fzrXjlx, mainPart_fzrZjhm, mainPart_fzrDzyj, 
+      mainPart_fzrLxfs1, mainPart_fzrLxfs2, mainPart_fzrYjdh, 
+      mainPart_fzrJstxLx, mainPart_fzrJstxZh, mainPart_fzrZjyxq, 
+      mainPart_bbfs, mainPart_bz, service_wzmc, 
+      service_syurl, service_nrlxId, service_nrlxQzsph, 
+      service_nrlxSpwj, service_fwnrId, service_fwlx, 
+      service_yylbId, service_fzrXm, service_fzrZjlx, 
+      service_fzrZjhm, service_fzrDzyj, service_fzrLxfs1, 
+      service_fzrLxfs2, service_fzrYjdh, service_fzrJstxLx, 
+      service_fzrJstxZh, service_fzrZjyxq, service_wzBz, 
+      service_xcxId, annex_cjm, annex_hyclbs, 
+      annex_fjwjgs, annex_fjyt, annex_fjnr, 
+      annex_fjssdxSsdxlx, annex_fjssdxSsdxbs, annex_bz, 
+      is_delete, create_time, update_time, 
+      create_by, update_by)
+    values (#{id,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{mainpartName,jdbcType=VARCHAR}, 
+      #{mainpartTzr,jdbcType=VARCHAR}, #{mainpartZjlx,jdbcType=BIGINT}, #{mainpartZjhm,jdbcType=VARCHAR}, 
+      #{mainpartZjzs,jdbcType=VARCHAR}, #{mainpartShengid,jdbcType=BIGINT}, #{mainpartShiid,jdbcType=BIGINT}, 
+      #{mainpartXianid,jdbcType=BIGINT}, #{mainpartXxdz,jdbcType=VARCHAR}, #{mainpartFzrxm,jdbcType=VARCHAR}, 
+      #{mainpartFzrxjlx,jdbcType=VARCHAR}, #{mainpartFzrzjhm,jdbcType=VARCHAR}, #{mainpartFzrdzyj,jdbcType=VARCHAR}, 
+      #{mainpartFzrlxfs1,jdbcType=VARCHAR}, #{mainpartFzrlxfs2,jdbcType=VARCHAR}, #{mainpartFzryjdh,jdbcType=VARCHAR}, 
+      #{mainpartFzrjstxlx,jdbcType=BIGINT}, #{mainpartFzrjstxzh,jdbcType=VARCHAR}, #{mainpartFzrzjyxq,jdbcType=VARCHAR}, 
+      #{mainpartBbfs,jdbcType=BIGINT}, #{mainpartBz,jdbcType=VARCHAR}, #{serviceWzmc,jdbcType=VARCHAR}, 
+      #{serviceSyurl,jdbcType=VARCHAR}, #{serviceNrlxid,jdbcType=BIGINT}, #{serviceNrlxqzsph,jdbcType=VARCHAR}, 
+      #{serviceNrlxspwj,jdbcType=VARCHAR}, #{serviceFwnrid,jdbcType=VARCHAR}, #{serviceFwlx,jdbcType=BIGINT}, 
+      #{serviceYylbid,jdbcType=BIGINT}, #{serviceFzrxm,jdbcType=VARCHAR}, #{serviceFzrzjlx,jdbcType=VARCHAR}, 
+      #{serviceFzrzjhm,jdbcType=VARCHAR}, #{serviceFzrdzyj,jdbcType=VARCHAR}, #{serviceFzrlxfs1,jdbcType=VARCHAR}, 
+      #{serviceFzrlxfs2,jdbcType=VARCHAR}, #{serviceFzryjdh,jdbcType=VARCHAR}, #{serviceFzrjstxlx,jdbcType=BIGINT}, 
+      #{serviceFzrjstxzh,jdbcType=VARCHAR}, #{serviceFzrzjyxq,jdbcType=VARCHAR}, #{serviceWzbz,jdbcType=VARCHAR}, 
+      #{serviceXcxid,jdbcType=VARCHAR}, #{annexCjm,jdbcType=VARCHAR}, #{annexHyclbs,jdbcType=BIGINT}, 
+      #{annexFjwjgs,jdbcType=BIGINT}, #{annexFjyt,jdbcType=BIGINT}, #{annexFjnr,jdbcType=VARCHAR}, 
+      #{annexFjssdxssdxlx,jdbcType=BIGINT}, #{annexFjssdxssdxbs,jdbcType=VARCHAR}, #{annexBz,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lix7.bossserver.pojo.TcFilingsReviewInfo">
+    insert into tc_filings_review_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="mainpartName != null">
+        mainPart_name,
+      </if>
+      <if test="mainpartTzr != null">
+        mainPart_tzr,
+      </if>
+      <if test="mainpartZjlx != null">
+        mainPart_zjlx,
+      </if>
+      <if test="mainpartZjhm != null">
+        mainPart_zjhm,
+      </if>
+      <if test="mainpartZjzs != null">
+        mainPart_zjzs,
+      </if>
+      <if test="mainpartShengid != null">
+        mainPart_shengid,
+      </if>
+      <if test="mainpartShiid != null">
+        mainPart_shiid,
+      </if>
+      <if test="mainpartXianid != null">
+        mainPart_xianid,
+      </if>
+      <if test="mainpartXxdz != null">
+        mainPart_xxdz,
+      </if>
+      <if test="mainpartFzrxm != null">
+        mainPart_fzrXm,
+      </if>
+      <if test="mainpartFzrxjlx != null">
+        mainPart_fzrXjlx,
+      </if>
+      <if test="mainpartFzrzjhm != null">
+        mainPart_fzrZjhm,
+      </if>
+      <if test="mainpartFzrdzyj != null">
+        mainPart_fzrDzyj,
+      </if>
+      <if test="mainpartFzrlxfs1 != null">
+        mainPart_fzrLxfs1,
+      </if>
+      <if test="mainpartFzrlxfs2 != null">
+        mainPart_fzrLxfs2,
+      </if>
+      <if test="mainpartFzryjdh != null">
+        mainPart_fzrYjdh,
+      </if>
+      <if test="mainpartFzrjstxlx != null">
+        mainPart_fzrJstxLx,
+      </if>
+      <if test="mainpartFzrjstxzh != null">
+        mainPart_fzrJstxZh,
+      </if>
+      <if test="mainpartFzrzjyxq != null">
+        mainPart_fzrZjyxq,
+      </if>
+      <if test="mainpartBbfs != null">
+        mainPart_bbfs,
+      </if>
+      <if test="mainpartBz != null">
+        mainPart_bz,
+      </if>
+      <if test="serviceWzmc != null">
+        service_wzmc,
+      </if>
+      <if test="serviceSyurl != null">
+        service_syurl,
+      </if>
+      <if test="serviceNrlxid != null">
+        service_nrlxId,
+      </if>
+      <if test="serviceNrlxqzsph != null">
+        service_nrlxQzsph,
+      </if>
+      <if test="serviceNrlxspwj != null">
+        service_nrlxSpwj,
+      </if>
+      <if test="serviceFwnrid != null">
+        service_fwnrId,
+      </if>
+      <if test="serviceFwlx != null">
+        service_fwlx,
+      </if>
+      <if test="serviceYylbid != null">
+        service_yylbId,
+      </if>
+      <if test="serviceFzrxm != null">
+        service_fzrXm,
+      </if>
+      <if test="serviceFzrzjlx != null">
+        service_fzrZjlx,
+      </if>
+      <if test="serviceFzrzjhm != null">
+        service_fzrZjhm,
+      </if>
+      <if test="serviceFzrdzyj != null">
+        service_fzrDzyj,
+      </if>
+      <if test="serviceFzrlxfs1 != null">
+        service_fzrLxfs1,
+      </if>
+      <if test="serviceFzrlxfs2 != null">
+        service_fzrLxfs2,
+      </if>
+      <if test="serviceFzryjdh != null">
+        service_fzrYjdh,
+      </if>
+      <if test="serviceFzrjstxlx != null">
+        service_fzrJstxLx,
+      </if>
+      <if test="serviceFzrjstxzh != null">
+        service_fzrJstxZh,
+      </if>
+      <if test="serviceFzrzjyxq != null">
+        service_fzrZjyxq,
+      </if>
+      <if test="serviceWzbz != null">
+        service_wzBz,
+      </if>
+      <if test="serviceXcxid != null">
+        service_xcxId,
+      </if>
+      <if test="annexCjm != null">
+        annex_cjm,
+      </if>
+      <if test="annexHyclbs != null">
+        annex_hyclbs,
+      </if>
+      <if test="annexFjwjgs != null">
+        annex_fjwjgs,
+      </if>
+      <if test="annexFjyt != null">
+        annex_fjyt,
+      </if>
+      <if test="annexFjnr != null">
+        annex_fjnr,
+      </if>
+      <if test="annexFjssdxssdxlx != null">
+        annex_fjssdxSsdxlx,
+      </if>
+      <if test="annexFjssdxssdxbs != null">
+        annex_fjssdxSsdxbs,
+      </if>
+      <if test="annexBz != null">
+        annex_bz,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="mainpartName != null">
+        #{mainpartName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartTzr != null">
+        #{mainpartTzr,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartZjlx != null">
+        #{mainpartZjlx,jdbcType=BIGINT},
+      </if>
+      <if test="mainpartZjhm != null">
+        #{mainpartZjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartZjzs != null">
+        #{mainpartZjzs,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartShengid != null">
+        #{mainpartShengid,jdbcType=BIGINT},
+      </if>
+      <if test="mainpartShiid != null">
+        #{mainpartShiid,jdbcType=BIGINT},
+      </if>
+      <if test="mainpartXianid != null">
+        #{mainpartXianid,jdbcType=BIGINT},
+      </if>
+      <if test="mainpartXxdz != null">
+        #{mainpartXxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrxm != null">
+        #{mainpartFzrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrxjlx != null">
+        #{mainpartFzrxjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrzjhm != null">
+        #{mainpartFzrzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrdzyj != null">
+        #{mainpartFzrdzyj,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrlxfs1 != null">
+        #{mainpartFzrlxfs1,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrlxfs2 != null">
+        #{mainpartFzrlxfs2,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzryjdh != null">
+        #{mainpartFzryjdh,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrjstxlx != null">
+        #{mainpartFzrjstxlx,jdbcType=BIGINT},
+      </if>
+      <if test="mainpartFzrjstxzh != null">
+        #{mainpartFzrjstxzh,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrzjyxq != null">
+        #{mainpartFzrzjyxq,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartBbfs != null">
+        #{mainpartBbfs,jdbcType=BIGINT},
+      </if>
+      <if test="mainpartBz != null">
+        #{mainpartBz,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceWzmc != null">
+        #{serviceWzmc,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceSyurl != null">
+        #{serviceSyurl,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceNrlxid != null">
+        #{serviceNrlxid,jdbcType=BIGINT},
+      </if>
+      <if test="serviceNrlxqzsph != null">
+        #{serviceNrlxqzsph,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceNrlxspwj != null">
+        #{serviceNrlxspwj,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFwnrid != null">
+        #{serviceFwnrid,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFwlx != null">
+        #{serviceFwlx,jdbcType=BIGINT},
+      </if>
+      <if test="serviceYylbid != null">
+        #{serviceYylbid,jdbcType=BIGINT},
+      </if>
+      <if test="serviceFzrxm != null">
+        #{serviceFzrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrzjlx != null">
+        #{serviceFzrzjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrzjhm != null">
+        #{serviceFzrzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrdzyj != null">
+        #{serviceFzrdzyj,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrlxfs1 != null">
+        #{serviceFzrlxfs1,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrlxfs2 != null">
+        #{serviceFzrlxfs2,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzryjdh != null">
+        #{serviceFzryjdh,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrjstxlx != null">
+        #{serviceFzrjstxlx,jdbcType=BIGINT},
+      </if>
+      <if test="serviceFzrjstxzh != null">
+        #{serviceFzrjstxzh,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrzjyxq != null">
+        #{serviceFzrzjyxq,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceWzbz != null">
+        #{serviceWzbz,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceXcxid != null">
+        #{serviceXcxid,jdbcType=VARCHAR},
+      </if>
+      <if test="annexCjm != null">
+        #{annexCjm,jdbcType=VARCHAR},
+      </if>
+      <if test="annexHyclbs != null">
+        #{annexHyclbs,jdbcType=BIGINT},
+      </if>
+      <if test="annexFjwjgs != null">
+        #{annexFjwjgs,jdbcType=BIGINT},
+      </if>
+      <if test="annexFjyt != null">
+        #{annexFjyt,jdbcType=BIGINT},
+      </if>
+      <if test="annexFjnr != null">
+        #{annexFjnr,jdbcType=VARCHAR},
+      </if>
+      <if test="annexFjssdxssdxlx != null">
+        #{annexFjssdxssdxlx,jdbcType=BIGINT},
+      </if>
+      <if test="annexFjssdxssdxbs != null">
+        #{annexFjssdxssdxbs,jdbcType=VARCHAR},
+      </if>
+      <if test="annexBz != null">
+        #{annexBz,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lix7.bossserver.pojo.TcFilingsReviewInfoExample" resultType="java.lang.Long">
+    select count(*) from tc_filings_review_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tc_filings_review_info
+    <set>
+      <if test="row.id != null">
+        id = #{row.id,jdbcType=INTEGER},
+      </if>
+      <if test="row.status != null">
+        status = #{row.status,jdbcType=INTEGER},
+      </if>
+      <if test="row.mainpartName != null">
+        mainPart_name = #{row.mainpartName,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartTzr != null">
+        mainPart_tzr = #{row.mainpartTzr,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartZjlx != null">
+        mainPart_zjlx = #{row.mainpartZjlx,jdbcType=BIGINT},
+      </if>
+      <if test="row.mainpartZjhm != null">
+        mainPart_zjhm = #{row.mainpartZjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartZjzs != null">
+        mainPart_zjzs = #{row.mainpartZjzs,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartShengid != null">
+        mainPart_shengid = #{row.mainpartShengid,jdbcType=BIGINT},
+      </if>
+      <if test="row.mainpartShiid != null">
+        mainPart_shiid = #{row.mainpartShiid,jdbcType=BIGINT},
+      </if>
+      <if test="row.mainpartXianid != null">
+        mainPart_xianid = #{row.mainpartXianid,jdbcType=BIGINT},
+      </if>
+      <if test="row.mainpartXxdz != null">
+        mainPart_xxdz = #{row.mainpartXxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartFzrxm != null">
+        mainPart_fzrXm = #{row.mainpartFzrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartFzrxjlx != null">
+        mainPart_fzrXjlx = #{row.mainpartFzrxjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartFzrzjhm != null">
+        mainPart_fzrZjhm = #{row.mainpartFzrzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartFzrdzyj != null">
+        mainPart_fzrDzyj = #{row.mainpartFzrdzyj,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartFzrlxfs1 != null">
+        mainPart_fzrLxfs1 = #{row.mainpartFzrlxfs1,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartFzrlxfs2 != null">
+        mainPart_fzrLxfs2 = #{row.mainpartFzrlxfs2,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartFzryjdh != null">
+        mainPart_fzrYjdh = #{row.mainpartFzryjdh,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartFzrjstxlx != null">
+        mainPart_fzrJstxLx = #{row.mainpartFzrjstxlx,jdbcType=BIGINT},
+      </if>
+      <if test="row.mainpartFzrjstxzh != null">
+        mainPart_fzrJstxZh = #{row.mainpartFzrjstxzh,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartFzrzjyxq != null">
+        mainPart_fzrZjyxq = #{row.mainpartFzrzjyxq,jdbcType=VARCHAR},
+      </if>
+      <if test="row.mainpartBbfs != null">
+        mainPart_bbfs = #{row.mainpartBbfs,jdbcType=BIGINT},
+      </if>
+      <if test="row.mainpartBz != null">
+        mainPart_bz = #{row.mainpartBz,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceWzmc != null">
+        service_wzmc = #{row.serviceWzmc,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceSyurl != null">
+        service_syurl = #{row.serviceSyurl,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceNrlxid != null">
+        service_nrlxId = #{row.serviceNrlxid,jdbcType=BIGINT},
+      </if>
+      <if test="row.serviceNrlxqzsph != null">
+        service_nrlxQzsph = #{row.serviceNrlxqzsph,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceNrlxspwj != null">
+        service_nrlxSpwj = #{row.serviceNrlxspwj,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceFwnrid != null">
+        service_fwnrId = #{row.serviceFwnrid,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceFwlx != null">
+        service_fwlx = #{row.serviceFwlx,jdbcType=BIGINT},
+      </if>
+      <if test="row.serviceYylbid != null">
+        service_yylbId = #{row.serviceYylbid,jdbcType=BIGINT},
+      </if>
+      <if test="row.serviceFzrxm != null">
+        service_fzrXm = #{row.serviceFzrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceFzrzjlx != null">
+        service_fzrZjlx = #{row.serviceFzrzjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceFzrzjhm != null">
+        service_fzrZjhm = #{row.serviceFzrzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceFzrdzyj != null">
+        service_fzrDzyj = #{row.serviceFzrdzyj,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceFzrlxfs1 != null">
+        service_fzrLxfs1 = #{row.serviceFzrlxfs1,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceFzrlxfs2 != null">
+        service_fzrLxfs2 = #{row.serviceFzrlxfs2,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceFzryjdh != null">
+        service_fzrYjdh = #{row.serviceFzryjdh,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceFzrjstxlx != null">
+        service_fzrJstxLx = #{row.serviceFzrjstxlx,jdbcType=BIGINT},
+      </if>
+      <if test="row.serviceFzrjstxzh != null">
+        service_fzrJstxZh = #{row.serviceFzrjstxzh,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceFzrzjyxq != null">
+        service_fzrZjyxq = #{row.serviceFzrzjyxq,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceWzbz != null">
+        service_wzBz = #{row.serviceWzbz,jdbcType=VARCHAR},
+      </if>
+      <if test="row.serviceXcxid != null">
+        service_xcxId = #{row.serviceXcxid,jdbcType=VARCHAR},
+      </if>
+      <if test="row.annexCjm != null">
+        annex_cjm = #{row.annexCjm,jdbcType=VARCHAR},
+      </if>
+      <if test="row.annexHyclbs != null">
+        annex_hyclbs = #{row.annexHyclbs,jdbcType=BIGINT},
+      </if>
+      <if test="row.annexFjwjgs != null">
+        annex_fjwjgs = #{row.annexFjwjgs,jdbcType=BIGINT},
+      </if>
+      <if test="row.annexFjyt != null">
+        annex_fjyt = #{row.annexFjyt,jdbcType=BIGINT},
+      </if>
+      <if test="row.annexFjnr != null">
+        annex_fjnr = #{row.annexFjnr,jdbcType=VARCHAR},
+      </if>
+      <if test="row.annexFjssdxssdxlx != null">
+        annex_fjssdxSsdxlx = #{row.annexFjssdxssdxlx,jdbcType=BIGINT},
+      </if>
+      <if test="row.annexFjssdxssdxbs != null">
+        annex_fjssdxSsdxbs = #{row.annexFjssdxssdxbs,jdbcType=VARCHAR},
+      </if>
+      <if test="row.annexBz != null">
+        annex_bz = #{row.annexBz,jdbcType=VARCHAR},
+      </if>
+      <if test="row.isDelete != null">
+        is_delete = #{row.isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="row.createTime != null">
+        create_time = #{row.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="row.updateTime != null">
+        update_time = #{row.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="row.createBy != null">
+        create_by = #{row.createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="row.updateBy != null">
+        update_by = #{row.updateBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tc_filings_review_info
+    set id = #{row.id,jdbcType=INTEGER},
+      status = #{row.status,jdbcType=INTEGER},
+      mainPart_name = #{row.mainpartName,jdbcType=VARCHAR},
+      mainPart_tzr = #{row.mainpartTzr,jdbcType=VARCHAR},
+      mainPart_zjlx = #{row.mainpartZjlx,jdbcType=BIGINT},
+      mainPart_zjhm = #{row.mainpartZjhm,jdbcType=VARCHAR},
+      mainPart_zjzs = #{row.mainpartZjzs,jdbcType=VARCHAR},
+      mainPart_shengid = #{row.mainpartShengid,jdbcType=BIGINT},
+      mainPart_shiid = #{row.mainpartShiid,jdbcType=BIGINT},
+      mainPart_xianid = #{row.mainpartXianid,jdbcType=BIGINT},
+      mainPart_xxdz = #{row.mainpartXxdz,jdbcType=VARCHAR},
+      mainPart_fzrXm = #{row.mainpartFzrxm,jdbcType=VARCHAR},
+      mainPart_fzrXjlx = #{row.mainpartFzrxjlx,jdbcType=VARCHAR},
+      mainPart_fzrZjhm = #{row.mainpartFzrzjhm,jdbcType=VARCHAR},
+      mainPart_fzrDzyj = #{row.mainpartFzrdzyj,jdbcType=VARCHAR},
+      mainPart_fzrLxfs1 = #{row.mainpartFzrlxfs1,jdbcType=VARCHAR},
+      mainPart_fzrLxfs2 = #{row.mainpartFzrlxfs2,jdbcType=VARCHAR},
+      mainPart_fzrYjdh = #{row.mainpartFzryjdh,jdbcType=VARCHAR},
+      mainPart_fzrJstxLx = #{row.mainpartFzrjstxlx,jdbcType=BIGINT},
+      mainPart_fzrJstxZh = #{row.mainpartFzrjstxzh,jdbcType=VARCHAR},
+      mainPart_fzrZjyxq = #{row.mainpartFzrzjyxq,jdbcType=VARCHAR},
+      mainPart_bbfs = #{row.mainpartBbfs,jdbcType=BIGINT},
+      mainPart_bz = #{row.mainpartBz,jdbcType=VARCHAR},
+      service_wzmc = #{row.serviceWzmc,jdbcType=VARCHAR},
+      service_syurl = #{row.serviceSyurl,jdbcType=VARCHAR},
+      service_nrlxId = #{row.serviceNrlxid,jdbcType=BIGINT},
+      service_nrlxQzsph = #{row.serviceNrlxqzsph,jdbcType=VARCHAR},
+      service_nrlxSpwj = #{row.serviceNrlxspwj,jdbcType=VARCHAR},
+      service_fwnrId = #{row.serviceFwnrid,jdbcType=VARCHAR},
+      service_fwlx = #{row.serviceFwlx,jdbcType=BIGINT},
+      service_yylbId = #{row.serviceYylbid,jdbcType=BIGINT},
+      service_fzrXm = #{row.serviceFzrxm,jdbcType=VARCHAR},
+      service_fzrZjlx = #{row.serviceFzrzjlx,jdbcType=VARCHAR},
+      service_fzrZjhm = #{row.serviceFzrzjhm,jdbcType=VARCHAR},
+      service_fzrDzyj = #{row.serviceFzrdzyj,jdbcType=VARCHAR},
+      service_fzrLxfs1 = #{row.serviceFzrlxfs1,jdbcType=VARCHAR},
+      service_fzrLxfs2 = #{row.serviceFzrlxfs2,jdbcType=VARCHAR},
+      service_fzrYjdh = #{row.serviceFzryjdh,jdbcType=VARCHAR},
+      service_fzrJstxLx = #{row.serviceFzrjstxlx,jdbcType=BIGINT},
+      service_fzrJstxZh = #{row.serviceFzrjstxzh,jdbcType=VARCHAR},
+      service_fzrZjyxq = #{row.serviceFzrzjyxq,jdbcType=VARCHAR},
+      service_wzBz = #{row.serviceWzbz,jdbcType=VARCHAR},
+      service_xcxId = #{row.serviceXcxid,jdbcType=VARCHAR},
+      annex_cjm = #{row.annexCjm,jdbcType=VARCHAR},
+      annex_hyclbs = #{row.annexHyclbs,jdbcType=BIGINT},
+      annex_fjwjgs = #{row.annexFjwjgs,jdbcType=BIGINT},
+      annex_fjyt = #{row.annexFjyt,jdbcType=BIGINT},
+      annex_fjnr = #{row.annexFjnr,jdbcType=VARCHAR},
+      annex_fjssdxSsdxlx = #{row.annexFjssdxssdxlx,jdbcType=BIGINT},
+      annex_fjssdxSsdxbs = #{row.annexFjssdxssdxbs,jdbcType=VARCHAR},
+      annex_bz = #{row.annexBz,jdbcType=VARCHAR},
+      is_delete = #{row.isDelete,jdbcType=TINYINT},
+      create_time = #{row.createTime,jdbcType=TIMESTAMP},
+      update_time = #{row.updateTime,jdbcType=TIMESTAMP},
+      create_by = #{row.createBy,jdbcType=VARCHAR},
+      update_by = #{row.updateBy,jdbcType=VARCHAR}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lix7.bossserver.pojo.TcFilingsReviewInfo">
+    update tc_filings_review_info
+    <set>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="mainpartName != null">
+        mainPart_name = #{mainpartName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartTzr != null">
+        mainPart_tzr = #{mainpartTzr,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartZjlx != null">
+        mainPart_zjlx = #{mainpartZjlx,jdbcType=BIGINT},
+      </if>
+      <if test="mainpartZjhm != null">
+        mainPart_zjhm = #{mainpartZjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartZjzs != null">
+        mainPart_zjzs = #{mainpartZjzs,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartShengid != null">
+        mainPart_shengid = #{mainpartShengid,jdbcType=BIGINT},
+      </if>
+      <if test="mainpartShiid != null">
+        mainPart_shiid = #{mainpartShiid,jdbcType=BIGINT},
+      </if>
+      <if test="mainpartXianid != null">
+        mainPart_xianid = #{mainpartXianid,jdbcType=BIGINT},
+      </if>
+      <if test="mainpartXxdz != null">
+        mainPart_xxdz = #{mainpartXxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrxm != null">
+        mainPart_fzrXm = #{mainpartFzrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrxjlx != null">
+        mainPart_fzrXjlx = #{mainpartFzrxjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrzjhm != null">
+        mainPart_fzrZjhm = #{mainpartFzrzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrdzyj != null">
+        mainPart_fzrDzyj = #{mainpartFzrdzyj,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrlxfs1 != null">
+        mainPart_fzrLxfs1 = #{mainpartFzrlxfs1,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrlxfs2 != null">
+        mainPart_fzrLxfs2 = #{mainpartFzrlxfs2,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzryjdh != null">
+        mainPart_fzrYjdh = #{mainpartFzryjdh,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrjstxlx != null">
+        mainPart_fzrJstxLx = #{mainpartFzrjstxlx,jdbcType=BIGINT},
+      </if>
+      <if test="mainpartFzrjstxzh != null">
+        mainPart_fzrJstxZh = #{mainpartFzrjstxzh,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartFzrzjyxq != null">
+        mainPart_fzrZjyxq = #{mainpartFzrzjyxq,jdbcType=VARCHAR},
+      </if>
+      <if test="mainpartBbfs != null">
+        mainPart_bbfs = #{mainpartBbfs,jdbcType=BIGINT},
+      </if>
+      <if test="mainpartBz != null">
+        mainPart_bz = #{mainpartBz,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceWzmc != null">
+        service_wzmc = #{serviceWzmc,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceSyurl != null">
+        service_syurl = #{serviceSyurl,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceNrlxid != null">
+        service_nrlxId = #{serviceNrlxid,jdbcType=BIGINT},
+      </if>
+      <if test="serviceNrlxqzsph != null">
+        service_nrlxQzsph = #{serviceNrlxqzsph,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceNrlxspwj != null">
+        service_nrlxSpwj = #{serviceNrlxspwj,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFwnrid != null">
+        service_fwnrId = #{serviceFwnrid,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFwlx != null">
+        service_fwlx = #{serviceFwlx,jdbcType=BIGINT},
+      </if>
+      <if test="serviceYylbid != null">
+        service_yylbId = #{serviceYylbid,jdbcType=BIGINT},
+      </if>
+      <if test="serviceFzrxm != null">
+        service_fzrXm = #{serviceFzrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrzjlx != null">
+        service_fzrZjlx = #{serviceFzrzjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrzjhm != null">
+        service_fzrZjhm = #{serviceFzrzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrdzyj != null">
+        service_fzrDzyj = #{serviceFzrdzyj,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrlxfs1 != null">
+        service_fzrLxfs1 = #{serviceFzrlxfs1,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrlxfs2 != null">
+        service_fzrLxfs2 = #{serviceFzrlxfs2,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzryjdh != null">
+        service_fzrYjdh = #{serviceFzryjdh,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrjstxlx != null">
+        service_fzrJstxLx = #{serviceFzrjstxlx,jdbcType=BIGINT},
+      </if>
+      <if test="serviceFzrjstxzh != null">
+        service_fzrJstxZh = #{serviceFzrjstxzh,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFzrzjyxq != null">
+        service_fzrZjyxq = #{serviceFzrzjyxq,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceWzbz != null">
+        service_wzBz = #{serviceWzbz,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceXcxid != null">
+        service_xcxId = #{serviceXcxid,jdbcType=VARCHAR},
+      </if>
+      <if test="annexCjm != null">
+        annex_cjm = #{annexCjm,jdbcType=VARCHAR},
+      </if>
+      <if test="annexHyclbs != null">
+        annex_hyclbs = #{annexHyclbs,jdbcType=BIGINT},
+      </if>
+      <if test="annexFjwjgs != null">
+        annex_fjwjgs = #{annexFjwjgs,jdbcType=BIGINT},
+      </if>
+      <if test="annexFjyt != null">
+        annex_fjyt = #{annexFjyt,jdbcType=BIGINT},
+      </if>
+      <if test="annexFjnr != null">
+        annex_fjnr = #{annexFjnr,jdbcType=VARCHAR},
+      </if>
+      <if test="annexFjssdxssdxlx != null">
+        annex_fjssdxSsdxlx = #{annexFjssdxssdxlx,jdbcType=BIGINT},
+      </if>
+      <if test="annexFjssdxssdxbs != null">
+        annex_fjssdxSsdxbs = #{annexFjssdxssdxbs,jdbcType=VARCHAR},
+      </if>
+      <if test="annexBz != null">
+        annex_bz = #{annexBz,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lix7.bossserver.pojo.TcFilingsReviewInfo">
+    update tc_filings_review_info
+    set status = #{status,jdbcType=INTEGER},
+      mainPart_name = #{mainpartName,jdbcType=VARCHAR},
+      mainPart_tzr = #{mainpartTzr,jdbcType=VARCHAR},
+      mainPart_zjlx = #{mainpartZjlx,jdbcType=BIGINT},
+      mainPart_zjhm = #{mainpartZjhm,jdbcType=VARCHAR},
+      mainPart_zjzs = #{mainpartZjzs,jdbcType=VARCHAR},
+      mainPart_shengid = #{mainpartShengid,jdbcType=BIGINT},
+      mainPart_shiid = #{mainpartShiid,jdbcType=BIGINT},
+      mainPart_xianid = #{mainpartXianid,jdbcType=BIGINT},
+      mainPart_xxdz = #{mainpartXxdz,jdbcType=VARCHAR},
+      mainPart_fzrXm = #{mainpartFzrxm,jdbcType=VARCHAR},
+      mainPart_fzrXjlx = #{mainpartFzrxjlx,jdbcType=VARCHAR},
+      mainPart_fzrZjhm = #{mainpartFzrzjhm,jdbcType=VARCHAR},
+      mainPart_fzrDzyj = #{mainpartFzrdzyj,jdbcType=VARCHAR},
+      mainPart_fzrLxfs1 = #{mainpartFzrlxfs1,jdbcType=VARCHAR},
+      mainPart_fzrLxfs2 = #{mainpartFzrlxfs2,jdbcType=VARCHAR},
+      mainPart_fzrYjdh = #{mainpartFzryjdh,jdbcType=VARCHAR},
+      mainPart_fzrJstxLx = #{mainpartFzrjstxlx,jdbcType=BIGINT},
+      mainPart_fzrJstxZh = #{mainpartFzrjstxzh,jdbcType=VARCHAR},
+      mainPart_fzrZjyxq = #{mainpartFzrzjyxq,jdbcType=VARCHAR},
+      mainPart_bbfs = #{mainpartBbfs,jdbcType=BIGINT},
+      mainPart_bz = #{mainpartBz,jdbcType=VARCHAR},
+      service_wzmc = #{serviceWzmc,jdbcType=VARCHAR},
+      service_syurl = #{serviceSyurl,jdbcType=VARCHAR},
+      service_nrlxId = #{serviceNrlxid,jdbcType=BIGINT},
+      service_nrlxQzsph = #{serviceNrlxqzsph,jdbcType=VARCHAR},
+      service_nrlxSpwj = #{serviceNrlxspwj,jdbcType=VARCHAR},
+      service_fwnrId = #{serviceFwnrid,jdbcType=VARCHAR},
+      service_fwlx = #{serviceFwlx,jdbcType=BIGINT},
+      service_yylbId = #{serviceYylbid,jdbcType=BIGINT},
+      service_fzrXm = #{serviceFzrxm,jdbcType=VARCHAR},
+      service_fzrZjlx = #{serviceFzrzjlx,jdbcType=VARCHAR},
+      service_fzrZjhm = #{serviceFzrzjhm,jdbcType=VARCHAR},
+      service_fzrDzyj = #{serviceFzrdzyj,jdbcType=VARCHAR},
+      service_fzrLxfs1 = #{serviceFzrlxfs1,jdbcType=VARCHAR},
+      service_fzrLxfs2 = #{serviceFzrlxfs2,jdbcType=VARCHAR},
+      service_fzrYjdh = #{serviceFzryjdh,jdbcType=VARCHAR},
+      service_fzrJstxLx = #{serviceFzrjstxlx,jdbcType=BIGINT},
+      service_fzrJstxZh = #{serviceFzrjstxzh,jdbcType=VARCHAR},
+      service_fzrZjyxq = #{serviceFzrzjyxq,jdbcType=VARCHAR},
+      service_wzBz = #{serviceWzbz,jdbcType=VARCHAR},
+      service_xcxId = #{serviceXcxid,jdbcType=VARCHAR},
+      annex_cjm = #{annexCjm,jdbcType=VARCHAR},
+      annex_hyclbs = #{annexHyclbs,jdbcType=BIGINT},
+      annex_fjwjgs = #{annexFjwjgs,jdbcType=BIGINT},
+      annex_fjyt = #{annexFjyt,jdbcType=BIGINT},
+      annex_fjnr = #{annexFjnr,jdbcType=VARCHAR},
+      annex_fjssdxSsdxlx = #{annexFjssdxssdxlx,jdbcType=BIGINT},
+      annex_fjssdxSsdxbs = #{annexFjssdxssdxbs,jdbcType=VARCHAR},
+      annex_bz = #{annexBz,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_by = #{updateBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

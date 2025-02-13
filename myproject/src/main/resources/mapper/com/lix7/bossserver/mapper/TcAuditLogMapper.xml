@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lix7.bossserver.mapper.TcAuditLogMapper">
+  <resultMap id="BaseResultMap" type="com.lix7.bossserver.pojo.TcAuditLog">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="EventId" jdbcType="VARCHAR" property="eventid" />
+    <result column="Timestamp" jdbcType="BIGINT" property="timestamp" />
+    <result column="SystemName" jdbcType="VARCHAR" property="systemname" />
+    <result column="Host" jdbcType="VARCHAR" property="host" />
+    <result column="SourceIp" jdbcType="VARCHAR" property="sourceip" />
+    <result column="TargetIp" jdbcType="VARCHAR" property="targetip" />
+    <result column="Rtx" jdbcType="VARCHAR" property="rtx" />
+    <result column="URL" jdbcType="VARCHAR" property="url" />
+    <result column="HTTPMethod" jdbcType="VARCHAR" property="httpmethod" />
+    <result column="RequestSource" jdbcType="VARCHAR" property="requestsource" />
+    <result column="StatusCode" jdbcType="VARCHAR" property="statuscode" />
+    <result column="StatusMessage" jdbcType="VARCHAR" property="statusmessage" />
+    <result column="Appid" jdbcType="VARCHAR" property="appid" />
+    <result column="Uin" jdbcType="VARCHAR" property="uin" />
+    <result column="SubUin" jdbcType="VARCHAR" property="subuin" />
+    <result column="UA" jdbcType="VARCHAR" property="ua" />
+    <result column="Referer" jdbcType="VARCHAR" property="referer" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.lix7.bossserver.pojo.TcAuditLogWithBLOBs">
+    <result column="HTTPParams" jdbcType="LONGVARCHAR" property="httpparams" />
+    <result column="HTTPPayload" jdbcType="LONGVARCHAR" property="httppayload" />
+    <result column="Response" jdbcType="LONGVARCHAR" property="response" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, EventId, Timestamp, SystemName, Host, SourceIp, TargetIp, Rtx, URL, HTTPMethod, 
+    RequestSource, StatusCode, StatusMessage, Appid, Uin, SubUin, UA, Referer
+  </sql>
+  <sql id="Blob_Column_List">
+    HTTPParams, HTTPPayload, Response
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.lix7.bossserver.pojo.TcAuditLogExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tc_audit_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.lix7.bossserver.pojo.TcAuditLogExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tc_audit_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tc_audit_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tc_audit_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lix7.bossserver.pojo.TcAuditLogExample">
+    delete from tc_audit_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lix7.bossserver.pojo.TcAuditLogWithBLOBs">
+    insert into tc_audit_log (id, EventId, Timestamp, 
+      SystemName, Host, SourceIp, 
+      TargetIp, Rtx, URL, 
+      HTTPMethod, RequestSource, StatusCode, 
+      StatusMessage, Appid, Uin, 
+      SubUin, UA, Referer, 
+      HTTPParams, HTTPPayload, Response
+      )
+    values (#{id,jdbcType=INTEGER}, #{eventid,jdbcType=VARCHAR}, #{timestamp,jdbcType=BIGINT}, 
+      #{systemname,jdbcType=VARCHAR}, #{host,jdbcType=VARCHAR}, #{sourceip,jdbcType=VARCHAR}, 
+      #{targetip,jdbcType=VARCHAR}, #{rtx,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{httpmethod,jdbcType=VARCHAR}, #{requestsource,jdbcType=VARCHAR}, #{statuscode,jdbcType=VARCHAR}, 
+      #{statusmessage,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR}, #{uin,jdbcType=VARCHAR}, 
+      #{subuin,jdbcType=VARCHAR}, #{ua,jdbcType=VARCHAR}, #{referer,jdbcType=VARCHAR}, 
+      #{httpparams,jdbcType=LONGVARCHAR}, #{httppayload,jdbcType=LONGVARCHAR}, #{response,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lix7.bossserver.pojo.TcAuditLogWithBLOBs">
+    insert into tc_audit_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="eventid != null">
+        EventId,
+      </if>
+      <if test="timestamp != null">
+        Timestamp,
+      </if>
+      <if test="systemname != null">
+        SystemName,
+      </if>
+      <if test="host != null">
+        Host,
+      </if>
+      <if test="sourceip != null">
+        SourceIp,
+      </if>
+      <if test="targetip != null">
+        TargetIp,
+      </if>
+      <if test="rtx != null">
+        Rtx,
+      </if>
+      <if test="url != null">
+        URL,
+      </if>
+      <if test="httpmethod != null">
+        HTTPMethod,
+      </if>
+      <if test="requestsource != null">
+        RequestSource,
+      </if>
+      <if test="statuscode != null">
+        StatusCode,
+      </if>
+      <if test="statusmessage != null">
+        StatusMessage,
+      </if>
+      <if test="appid != null">
+        Appid,
+      </if>
+      <if test="uin != null">
+        Uin,
+      </if>
+      <if test="subuin != null">
+        SubUin,
+      </if>
+      <if test="ua != null">
+        UA,
+      </if>
+      <if test="referer != null">
+        Referer,
+      </if>
+      <if test="httpparams != null">
+        HTTPParams,
+      </if>
+      <if test="httppayload != null">
+        HTTPPayload,
+      </if>
+      <if test="response != null">
+        Response,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="eventid != null">
+        #{eventid,jdbcType=VARCHAR},
+      </if>
+      <if test="timestamp != null">
+        #{timestamp,jdbcType=BIGINT},
+      </if>
+      <if test="systemname != null">
+        #{systemname,jdbcType=VARCHAR},
+      </if>
+      <if test="host != null">
+        #{host,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceip != null">
+        #{sourceip,jdbcType=VARCHAR},
+      </if>
+      <if test="targetip != null">
+        #{targetip,jdbcType=VARCHAR},
+      </if>
+      <if test="rtx != null">
+        #{rtx,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="httpmethod != null">
+        #{httpmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="requestsource != null">
+        #{requestsource,jdbcType=VARCHAR},
+      </if>
+      <if test="statuscode != null">
+        #{statuscode,jdbcType=VARCHAR},
+      </if>
+      <if test="statusmessage != null">
+        #{statusmessage,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="uin != null">
+        #{uin,jdbcType=VARCHAR},
+      </if>
+      <if test="subuin != null">
+        #{subuin,jdbcType=VARCHAR},
+      </if>
+      <if test="ua != null">
+        #{ua,jdbcType=VARCHAR},
+      </if>
+      <if test="referer != null">
+        #{referer,jdbcType=VARCHAR},
+      </if>
+      <if test="httpparams != null">
+        #{httpparams,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="httppayload != null">
+        #{httppayload,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="response != null">
+        #{response,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lix7.bossserver.pojo.TcAuditLogExample" resultType="java.lang.Long">
+    select count(*) from tc_audit_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tc_audit_log
+    <set>
+      <if test="row.id != null">
+        id = #{row.id,jdbcType=INTEGER},
+      </if>
+      <if test="row.eventid != null">
+        EventId = #{row.eventid,jdbcType=VARCHAR},
+      </if>
+      <if test="row.timestamp != null">
+        Timestamp = #{row.timestamp,jdbcType=BIGINT},
+      </if>
+      <if test="row.systemname != null">
+        SystemName = #{row.systemname,jdbcType=VARCHAR},
+      </if>
+      <if test="row.host != null">
+        Host = #{row.host,jdbcType=VARCHAR},
+      </if>
+      <if test="row.sourceip != null">
+        SourceIp = #{row.sourceip,jdbcType=VARCHAR},
+      </if>
+      <if test="row.targetip != null">
+        TargetIp = #{row.targetip,jdbcType=VARCHAR},
+      </if>
+      <if test="row.rtx != null">
+        Rtx = #{row.rtx,jdbcType=VARCHAR},
+      </if>
+      <if test="row.url != null">
+        URL = #{row.url,jdbcType=VARCHAR},
+      </if>
+      <if test="row.httpmethod != null">
+        HTTPMethod = #{row.httpmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="row.requestsource != null">
+        RequestSource = #{row.requestsource,jdbcType=VARCHAR},
+      </if>
+      <if test="row.statuscode != null">
+        StatusCode = #{row.statuscode,jdbcType=VARCHAR},
+      </if>
+      <if test="row.statusmessage != null">
+        StatusMessage = #{row.statusmessage,jdbcType=VARCHAR},
+      </if>
+      <if test="row.appid != null">
+        Appid = #{row.appid,jdbcType=VARCHAR},
+      </if>
+      <if test="row.uin != null">
+        Uin = #{row.uin,jdbcType=VARCHAR},
+      </if>
+      <if test="row.subuin != null">
+        SubUin = #{row.subuin,jdbcType=VARCHAR},
+      </if>
+      <if test="row.ua != null">
+        UA = #{row.ua,jdbcType=VARCHAR},
+      </if>
+      <if test="row.referer != null">
+        Referer = #{row.referer,jdbcType=VARCHAR},
+      </if>
+      <if test="row.httpparams != null">
+        HTTPParams = #{row.httpparams,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="row.httppayload != null">
+        HTTPPayload = #{row.httppayload,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="row.response != null">
+        Response = #{row.response,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update tc_audit_log
+    set id = #{row.id,jdbcType=INTEGER},
+      EventId = #{row.eventid,jdbcType=VARCHAR},
+      Timestamp = #{row.timestamp,jdbcType=BIGINT},
+      SystemName = #{row.systemname,jdbcType=VARCHAR},
+      Host = #{row.host,jdbcType=VARCHAR},
+      SourceIp = #{row.sourceip,jdbcType=VARCHAR},
+      TargetIp = #{row.targetip,jdbcType=VARCHAR},
+      Rtx = #{row.rtx,jdbcType=VARCHAR},
+      URL = #{row.url,jdbcType=VARCHAR},
+      HTTPMethod = #{row.httpmethod,jdbcType=VARCHAR},
+      RequestSource = #{row.requestsource,jdbcType=VARCHAR},
+      StatusCode = #{row.statuscode,jdbcType=VARCHAR},
+      StatusMessage = #{row.statusmessage,jdbcType=VARCHAR},
+      Appid = #{row.appid,jdbcType=VARCHAR},
+      Uin = #{row.uin,jdbcType=VARCHAR},
+      SubUin = #{row.subuin,jdbcType=VARCHAR},
+      UA = #{row.ua,jdbcType=VARCHAR},
+      Referer = #{row.referer,jdbcType=VARCHAR},
+      HTTPParams = #{row.httpparams,jdbcType=LONGVARCHAR},
+      HTTPPayload = #{row.httppayload,jdbcType=LONGVARCHAR},
+      Response = #{row.response,jdbcType=LONGVARCHAR}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tc_audit_log
+    set id = #{row.id,jdbcType=INTEGER},
+      EventId = #{row.eventid,jdbcType=VARCHAR},
+      Timestamp = #{row.timestamp,jdbcType=BIGINT},
+      SystemName = #{row.systemname,jdbcType=VARCHAR},
+      Host = #{row.host,jdbcType=VARCHAR},
+      SourceIp = #{row.sourceip,jdbcType=VARCHAR},
+      TargetIp = #{row.targetip,jdbcType=VARCHAR},
+      Rtx = #{row.rtx,jdbcType=VARCHAR},
+      URL = #{row.url,jdbcType=VARCHAR},
+      HTTPMethod = #{row.httpmethod,jdbcType=VARCHAR},
+      RequestSource = #{row.requestsource,jdbcType=VARCHAR},
+      StatusCode = #{row.statuscode,jdbcType=VARCHAR},
+      StatusMessage = #{row.statusmessage,jdbcType=VARCHAR},
+      Appid = #{row.appid,jdbcType=VARCHAR},
+      Uin = #{row.uin,jdbcType=VARCHAR},
+      SubUin = #{row.subuin,jdbcType=VARCHAR},
+      UA = #{row.ua,jdbcType=VARCHAR},
+      Referer = #{row.referer,jdbcType=VARCHAR}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lix7.bossserver.pojo.TcAuditLogWithBLOBs">
+    update tc_audit_log
+    <set>
+      <if test="eventid != null">
+        EventId = #{eventid,jdbcType=VARCHAR},
+      </if>
+      <if test="timestamp != null">
+        Timestamp = #{timestamp,jdbcType=BIGINT},
+      </if>
+      <if test="systemname != null">
+        SystemName = #{systemname,jdbcType=VARCHAR},
+      </if>
+      <if test="host != null">
+        Host = #{host,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceip != null">
+        SourceIp = #{sourceip,jdbcType=VARCHAR},
+      </if>
+      <if test="targetip != null">
+        TargetIp = #{targetip,jdbcType=VARCHAR},
+      </if>
+      <if test="rtx != null">
+        Rtx = #{rtx,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="httpmethod != null">
+        HTTPMethod = #{httpmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="requestsource != null">
+        RequestSource = #{requestsource,jdbcType=VARCHAR},
+      </if>
+      <if test="statuscode != null">
+        StatusCode = #{statuscode,jdbcType=VARCHAR},
+      </if>
+      <if test="statusmessage != null">
+        StatusMessage = #{statusmessage,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        Appid = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="uin != null">
+        Uin = #{uin,jdbcType=VARCHAR},
+      </if>
+      <if test="subuin != null">
+        SubUin = #{subuin,jdbcType=VARCHAR},
+      </if>
+      <if test="ua != null">
+        UA = #{ua,jdbcType=VARCHAR},
+      </if>
+      <if test="referer != null">
+        Referer = #{referer,jdbcType=VARCHAR},
+      </if>
+      <if test="httpparams != null">
+        HTTPParams = #{httpparams,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="httppayload != null">
+        HTTPPayload = #{httppayload,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="response != null">
+        Response = #{response,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lix7.bossserver.pojo.TcAuditLogWithBLOBs">
+    update tc_audit_log
+    set EventId = #{eventid,jdbcType=VARCHAR},
+      Timestamp = #{timestamp,jdbcType=BIGINT},
+      SystemName = #{systemname,jdbcType=VARCHAR},
+      Host = #{host,jdbcType=VARCHAR},
+      SourceIp = #{sourceip,jdbcType=VARCHAR},
+      TargetIp = #{targetip,jdbcType=VARCHAR},
+      Rtx = #{rtx,jdbcType=VARCHAR},
+      URL = #{url,jdbcType=VARCHAR},
+      HTTPMethod = #{httpmethod,jdbcType=VARCHAR},
+      RequestSource = #{requestsource,jdbcType=VARCHAR},
+      StatusCode = #{statuscode,jdbcType=VARCHAR},
+      StatusMessage = #{statusmessage,jdbcType=VARCHAR},
+      Appid = #{appid,jdbcType=VARCHAR},
+      Uin = #{uin,jdbcType=VARCHAR},
+      SubUin = #{subuin,jdbcType=VARCHAR},
+      UA = #{ua,jdbcType=VARCHAR},
+      Referer = #{referer,jdbcType=VARCHAR},
+      HTTPParams = #{httpparams,jdbcType=LONGVARCHAR},
+      HTTPPayload = #{httppayload,jdbcType=LONGVARCHAR},
+      Response = #{response,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lix7.bossserver.pojo.TcAuditLog">
+    update tc_audit_log
+    set EventId = #{eventid,jdbcType=VARCHAR},
+      Timestamp = #{timestamp,jdbcType=BIGINT},
+      SystemName = #{systemname,jdbcType=VARCHAR},
+      Host = #{host,jdbcType=VARCHAR},
+      SourceIp = #{sourceip,jdbcType=VARCHAR},
+      TargetIp = #{targetip,jdbcType=VARCHAR},
+      Rtx = #{rtx,jdbcType=VARCHAR},
+      URL = #{url,jdbcType=VARCHAR},
+      HTTPMethod = #{httpmethod,jdbcType=VARCHAR},
+      RequestSource = #{requestsource,jdbcType=VARCHAR},
+      StatusCode = #{statuscode,jdbcType=VARCHAR},
+      StatusMessage = #{statusmessage,jdbcType=VARCHAR},
+      Appid = #{appid,jdbcType=VARCHAR},
+      Uin = #{uin,jdbcType=VARCHAR},
+      SubUin = #{subuin,jdbcType=VARCHAR},
+      UA = #{ua,jdbcType=VARCHAR},
+      Referer = #{referer,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
