@@ -1,3 +1,5 @@
 ollama run llama3.2
 
 ollama run deepseek-r1:7b
+
+25000/4000
