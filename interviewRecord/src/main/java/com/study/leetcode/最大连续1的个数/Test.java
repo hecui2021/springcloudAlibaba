@@ -8,21 +8,22 @@ package com.study.leetcode.最大连续1的个数;
  */
 public class Test {
     public static void main(String[] args) {
-
+        int[] nums = {1, 1, 0, 1, 1, 1};
+        System.out.println(findMaxConsecutiveOnes(nums));
     }
 
-    public int findMaxConsecutiveOnes(int[] nums) {
-
+    public static int findMaxConsecutiveOnes(int[] nums) {
         int count = 0;
         int left = 0;
         int right = 0;
         while (right < nums.length) {
             if (nums[right] == 1) {
                 count = Math.max(count, right - left + 1);
-            } else
-
+            } else {
+                left = right + 1;
+            }
             right++;
         }
-
+        return count;
     }
 }
