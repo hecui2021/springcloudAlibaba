@@ -36,6 +36,7 @@ public class Test {
         int m = in.nextInt();
         System.out.println(m + "颗不成活");
         int[] array = new int[m];
+
         for (int i = 0; i < m; i++) {
             array[i] = 1;
         }
