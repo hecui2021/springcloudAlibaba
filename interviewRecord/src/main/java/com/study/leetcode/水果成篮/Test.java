@@ -2,7 +2,7 @@ package com.study.leetcode.水果成篮;
 
 /**
  * @author peterche
- * @description:
+ * @description: 904 水果成篮
  * @date 2025-02-20
  */
 public class Test {
