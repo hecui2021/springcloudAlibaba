@@ -1,6 +1,8 @@
 package com.study.huaweiod.报数游戏;
 
 
+import com.study.NodeList;
+
 /**
  * @author peterche
  * @description:
@@ -25,6 +27,53 @@ public class Test {
      * @param args
      */
     public static void main(String[] args) {
+        int n = 100;
+        int m = 4;
 
+        NodeList head = new NodeList(1);
+        NodeList cur = head;
+        for (int i = 2; i <= n; i++) {
+            cur.next = new NodeList(i);
+            cur = cur.next;
+        }
+        cur.next = head;//成环
+
+        int count = getCount(head);
+        System.out.println("count:" + count);
+
+        cur = head;
+        NodeList prev = null;
+        while (getCount(cur) >= m) {
+            for (int i = 1; i < m; i++) {
+                prev = cur;
+                cur = cur.next;
+            }
+            // 移除当前节点
+            prev.next = cur.next;
+            cur = prev.next;
+        }
+
+        print(cur);
     }
+
+    public static int getCount(NodeList head) {
+        int count = 1;
+        NodeList cur = head;
+        while (cur.next != head) {
+            cur = cur.next;
+            count++;
+        }
+        return count;
+    }
+
+    public static void print(NodeList head) {
+        NodeList cur = head;
+        while (cur.next != head) {
+            System.out.println(cur.val);
+            cur = cur.next;
+        }
+        System.out.println(cur.val);
+    }
+
+
 }
