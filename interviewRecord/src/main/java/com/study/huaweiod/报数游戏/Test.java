@@ -5,7 +5,7 @@ import com.study.NodeList;
 
 /**
  * @author peterche
- * @description:
+ * @description:约瑟夫问题，链表解决
  * @date 2025-02-17
  */
 public class Test {
