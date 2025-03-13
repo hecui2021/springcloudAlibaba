@@ -1,14 +1,14 @@
 package com.study.huaweiod.最大社交距离;
 
 
-import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * @author peterche
  * @description:
  * @date 2025-02-17
  */
-public class Test {
+public class Main {
 
     /**
      * 题目描述
@@ -46,16 +46,23 @@ public class Test {
      * @param args
      */
     public static void main(String[] args) {
-        int n = 6;
-//        int[] array = {1, 1, 1, 1, -4, 1};
-        int[] array = {1, 1, 1, 1, 1, 1, 1};
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();  // 读取座位总数
+        scanner.nextLine();  // 读取换行符
+        String str = scanner.nextLine();  // 读取座位占用和离开的操作序列
+        String[] parts = str.substring(1, str.length() - 1).split(", ");
+
+        int[] array = new int[parts.length];
+        for (int i = 0; i < parts.length; i++) {
+            array[i] = Integer.parseInt(parts[i]);
+        }
 
         int[] seat = new int[n];
 
+        int index = -1;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 1) {
-                int index = getIndex(seat);
-                System.out.println(index);
+                index = getIndex(seat);
                 if (index == -1) {
                     System.out.println(-1);
                     return;
@@ -64,8 +71,9 @@ public class Test {
             } else if (array[i] < 0) {
                 seat[0 -array[i]] = 0;
             }
-            System.out.println(Arrays.toString(seat));
         }
+        System.out.println(index);
+        scanner.close();
     }
 
     public static int getIndex(int[] array) {
@@ -94,6 +102,4 @@ public class Test {
         }
         return index;
     }
-
-
 }
