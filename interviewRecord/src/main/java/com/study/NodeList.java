@@ -8,6 +8,8 @@ package com.study;
  */
 
 public class NodeList {
+
+    public int index;
     public int val;
 
     public NodeList next;
@@ -15,4 +17,5 @@ public class NodeList {
     public NodeList(int val) {
         this.val = val;
     }
+
 }
