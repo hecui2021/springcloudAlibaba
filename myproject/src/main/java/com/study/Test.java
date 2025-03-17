@@ -1,5 +1,8 @@
 package com.study;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
@@ -16,6 +19,22 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
+        String filePath = "/Users/peterche/local/code/myself/springcloudAlibaba/myproject/doc/country.txt";
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String str = "insert into tc_oversea_country(country) values ('"  + line + "');";
+                System.out.println(str);
+            }
+            reader.close();
+            return;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         long curTime = System.currentTimeMillis();
 
         long startTime = 1706688590749l;

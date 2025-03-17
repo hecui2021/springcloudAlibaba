@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @Description:
  * @Date: 2025/2/10 23:18
  */
-public class Test {
+public class Main {
 
     /**
      * 近些年来，我国防沙治沙取得显著成果。某沙漠新种植 N N N 棵胡杨（编号 1 − N 1-N 1  −   N ），排成一排。
@@ -29,26 +29,44 @@ public class Test {
      * @param args
      */
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        System.out.println("种植了" + n + "颗");
-        // m颗未成活
-        int m = in.nextInt();
-        System.out.println(m + "颗不成活");
-        int[] array = new int[m];
+        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; i < m; i++) {
-            array[i] = 1;
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        // 读取换行
+        scanner.nextLine();
+        String mStr = scanner.nextLine();
+        int k = scanner.nextInt();
+
+        // 10101
+        int[] array = new int[n];
+        String[] mArray = mStr.split(" ");
+        for (int i = 0; i < mArray.length; i++) {
+            array[Integer.parseInt(mArray[i]) - 1] = 1;
         }
 
-        for (int i = 0; i < m; i++) {
-            int mi = in.nextInt();
-            array[mi] = 0;
+        int start = 0;
+        int end = 0;
+        int max = 0;
+        while (end < array.length) {
+            while (getCount(array, start, end) > k) {
+                start++;
+            }
+            max = Math.max(max, end - start + 1);
+            end++;
         }
-        System.out.println(m + "颗不成活的位置如上");
-        int k = in.nextInt();
-        System.out.println("补种" + k + "颗");
+        System.out.println(max);
 
+        scanner.close();
+    }
 
+    public static int getCount(int[] array, int start, int end) {
+        int count = 0;
+        for (int i = start; i <= end; i++) {
+            if (array[i] == 1) {
+                count++;
+            }
+        }
+        return count;
     }
 }
