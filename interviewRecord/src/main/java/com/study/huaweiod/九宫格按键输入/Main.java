@@ -25,39 +25,48 @@ public class Main {
         int lastNumTimes = 0;
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == '#') {
+                result += getStr(lastNum, lastNumTimes, modeIsNum);
                 modeIsNum = !modeIsNum;
-                result += getStr(lastNum, lastNumTimes);
                 lastNum = -1;
                 lastNumTimes = 0;
                 continue;
             } else if (str.charAt(i) == '/') {
-                result += getStr(lastNum, lastNumTimes);
+                result += getStr(lastNum, lastNumTimes, modeIsNum);
                 lastNum = -1;
                 lastNumTimes = 0;
                 continue;
             }
             //当前字符和上一个字符不同，或者当前为数字模式，直接拼接结果
-            if (Integer.parseInt(String.valueOf(str.charAt(i))) != lastNum || modeIsNum) {
-                result += getStr(lastNum, lastNumTimes);
+            String value = String.valueOf(str.charAt(i));
+            if (Integer.parseInt(value) != lastNum || modeIsNum) {
+                result += getStr(lastNum, lastNumTimes, modeIsNum);
                 lastNum = Integer.parseInt(String.valueOf(str.charAt(i)));
                 lastNumTimes = 1;
                 continue;
             }
             lastNumTimes++;
         }
-        result += getStr(lastNum, lastNumTimes);
+        result += getStr(lastNum, lastNumTimes, modeIsNum);
         System.out.println(result);
     }
 
-    public static String getStr(int num, int numTimes) {
+    public static String getStr(int num, int numTimes, boolean numMode) {
         if (num <0 || num > 9) {
             return "";
         }
+        if (numMode) {
+            // 数字模式
+            String str = "";
+            for (int i = 0; i < numTimes; i++) {
+                str += num + "";
+            }
+            return str;
+        }
+
         String[] array = {"", ",.", "abc", "def", "ghi", "jkl", "mno", "pqs", "tuv", "wxyz"};
         String str = array[num];
         String[] newArray = str.split("");
         int count = numTimes % newArray.length;
         return newArray[count - 1];
     }
-
 }
