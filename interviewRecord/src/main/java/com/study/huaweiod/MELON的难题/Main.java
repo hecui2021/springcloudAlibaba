@@ -29,18 +29,18 @@ public class Main {
             return;
         }
 
-        int max = 0;
-        int start = 0;
-        int end = 0;
-        while (end < array.length) {
-            if (getSum(array, start, end) == sum /2) {
-                max = Math.max(max, end - start + 1);
-                start++;
-                continue;
+        int[][] dp = new int[n + 1][sum /2 + 1];
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 1; j < sum /2 + 1; j++) {
+                if (array[i - 1] > j) {
+                    dp[i][j] = dp[i -1][j];
+                } else {
+                    dp[i][j] = Math.max(dp[i -1][j], dp[i - 1][j - array[i - 1]] + 1);
+                }
             }
-            end++;
         }
-        System.out.println(array.length - max);
+
+        System.out.println(array.length - dp[array.length][sum / 2]);
 
         scanner.close();
     }

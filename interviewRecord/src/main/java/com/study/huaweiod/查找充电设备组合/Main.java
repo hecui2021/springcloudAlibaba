@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * @author peterche
- * @description:
+ * @description: 动态规划
  * @date 2025-02-17
  */
 public class Main {
