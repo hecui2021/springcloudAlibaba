@@ -19,9 +19,11 @@ public class Main {
             String[] array = str.split(" ");
             if ("p".equals(array[0])) {
                 // 输出
-                Person p = list.get(0);
-                list.remove(p);
-                System.out.println(p.index);
+                if (list.size() > 0) {
+                    Person p = list.get(0);
+                    list.remove(p);
+                    System.out.println(p.index);
+                }
             } else {
                 // 插入
                 list = add(list, array);
