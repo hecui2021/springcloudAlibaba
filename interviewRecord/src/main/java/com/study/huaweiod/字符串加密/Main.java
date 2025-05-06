@@ -18,7 +18,7 @@ public class Main {
         a[1] = 2;
         a[2] = 4;
         for (int i = 3; i < 50; i++) {
-            a[i] = (a[i-1]+a[i-2]+a[i-3]) % 26;
+            a[i] = (a[i - 1] + a[i - 2] + a[i - 3]) % 26;
         }
 
 
@@ -26,8 +26,9 @@ public class Main {
             String str = scanner.nextLine();
             char[] charArray = str.toCharArray();
             for (int j = 0; j < str.length(); j++) {
-                charArray[j] = (char)((charArray[j] + a[j] - 97) % 26 + 97);
+                charArray[j] = (char) ((charArray[j] + a[j] - 97) % 26 + 97);
             }
             System.out.println(new String(charArray));
         }
     }
+}
