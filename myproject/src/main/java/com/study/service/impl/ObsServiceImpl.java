@@ -69,7 +69,7 @@ public class ObsServiceImpl implements ObsService {
             BigDecimal sum = BigDecimal.ZERO;
             Map<String, BigDecimal> map = new HashMap<>();
             for (ObsData obsData : obsDataList) {
-//                if (obsData.getProductIdV1().equals("p_cls")) {
+                if (obsData.getProductIdV1().equals("p_cls")) {
                     String instanceId = obsData.getInstanceId();
                     String lastMoney = obsData.getLastMoney();
                     BigDecimal money = new BigDecimal(lastMoney);
@@ -81,7 +81,7 @@ public class ObsServiceImpl implements ObsService {
                         bigDecimal = bigDecimal.add(money);
                     }
                     map.put(instanceId, bigDecimal);
-//                }
+                }
             }
 
             // map按照value降序排序
