@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <!-- 日志输出路径 -->
+    <property name="log_dir" value="./myproject/log"/>
+    <!-- 单个日志文件大小 -->
+    <property name="maxFileSize" value="2GB"/>
+    <!-- 一般性减少日志盘使用量 -->
+    <property name="maxHistory" value="12"/>
+    <!-- 尽可能减少日志文件数 -->
+    <property name="reducedMaxHistory" value="2"/>
+    <!-- 一般性减少日志盘使用量 -->
+    <property name="totalSizeCap" value="24GB"/>
+    <!-- 尽可能减少日志盘使用量 -->
+    <property name="reducedTotalSizeCap" value="4GB"/>
+    <!-- %logger{36} 表示 Logger 名字最长36个字符 -->
+    <property name="LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread][%X{server-env}][%X{trace-id}] %-5level %logger{36}  - %msg%n" />
+
+    <!-- 经过计算 最大日志文件占用空间大小为 64G 为确保余量 日志盘容量设定为128G -->
+
+    <!-- ERROR级别日志 -->
+    <!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 RollingFileAppender-->
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_dir}/error.log</file>
+        <!-- 过滤器，只记录WARN级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <!-- 最常用的滚动策略，它根据时间来制定滚动策略.既负责滚动也负责出发滚动 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log_dir}/error.%d{yyyyMMdd}.%i.log</fileNamePattern>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <maxFileSize>${maxFileSize}</maxFileSize>
+            <maxHistory>${reducedMaxHistory}</maxHistory>
+            <totalSizeCap>${reducedTotalSizeCap}</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|%t|%p|%X{app-traceid}|NONE|%m%n</pattern>-->
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- WARN级别日志 appender -->
+    <appender name="WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_dir}/warn.log</file>
+        <!-- 过滤器，只记录WARN级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log_dir}/warn.%d{yyyyMMdd}.%i.log</fileNamePattern>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <maxFileSize>${maxFileSize}</maxFileSize>
+            <maxHistory>${reducedMaxHistory}</maxHistory>
+            <totalSizeCap>${reducedTotalSizeCap}</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- INFO级别日志 appender -->
+    <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_dir}/info.log</file>
+        <!-- 过滤器，只记录INFO级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log_dir}/info.%d{yyyyMMdd}.%i.log</fileNamePattern>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <maxFileSize>${maxFileSize}</maxFileSize>
+            <maxHistory>${reducedMaxHistory}</maxHistory>
+            <totalSizeCap>${reducedTotalSizeCap}</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- DEBUG级别日志 appender -->
+    <appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_dir}/debug.log</file>
+        <!-- 过滤器，只记录DEBUG级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log_dir}/debug.%d{yyyyMMdd}.%i.log</fileNamePattern>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <maxFileSize>${maxFileSize}</maxFileSize>
+            <maxHistory>${maxHistory}</maxHistory>
+            <totalSizeCap>${totalSizeCap}</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- TRACE级别日志 appender -->
+    <appender name="PASSIVE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_dir}/trace.log</file>
+        <!-- 过滤器，只记录TRACE级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log_dir}/trace.%d{yyyyMMdd}.%i.log</fileNamePattern>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <maxFileSize>${maxFileSize}</maxFileSize>
+            <maxHistory>${reducedMaxHistory}</maxHistory>
+            <totalSizeCap>${reducedTotalSizeCap}</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 框架与其他依赖日志 appender -->
+    <appender name="DEPENDENCIES" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_dir}/dependencies.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 按天回滚 daily -->
+            <fileNamePattern>${log_dir}/dependencies.%d{yyyyMMdd}.%i.log</fileNamePattern>
+
+            <!-- 限制单个日志文件大小 -->
+            <timeBasedFileNamingAndTriggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${maxFileSize}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+            <!-- 日志文件最大数量 -->
+            <maxHistory>${maxHistory}</maxHistory>
+            <!-- 配置总日志大小的最大值 -->
+            <totalSizeCap>${totalSizeCap}</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+
+    <!-- 异步日志 -->
+    <appender name="ERROR_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 更改默认的队列的深度 -->
+        <queueSize>1024</queueSize>
+        <neverBlock>true</neverBlock>
+        <!-- 添加附加的 Appender -->
+        <appender-ref ref="ERROR"/>
+    </appender>
+
+    <!-- 异步日志 -->
+    <appender name="INFO_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度 -->
+        <queueSize>8192</queueSize>
+        <neverBlock>true</neverBlock>
+        <!-- 添加附加的 Appender -->
+        <appender-ref ref="INFO"/>
+    </appender>
+
+    <!-- 异步日志 -->
+    <appender name="WARN_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 更改默认的队列的深度 -->
+        <queueSize>1024</queueSize>
+        <neverBlock>true</neverBlock>
+        <!-- 添加附加的 Appender -->
+        <appender-ref ref="WARN"/>
+    </appender>
+
+    <!-- 异步日志 -->
+    <appender name="DEBUG_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度 -->
+        <queueSize>8192</queueSize>
+        <neverBlock>true</neverBlock>
+        <!-- 添加附加的 Appender -->
+        <appender-ref ref="DEBUG"/>
+    </appender>
+
+    <!-- 异步日志 -->
+    <appender name="DEPENDENCIES_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 更改默认的队列的深度 -->
+        <queueSize>1024</queueSize>
+        <neverBlock>true</neverBlock>
+        <!-- 添加附加的 Appender -->
+        <appender-ref ref="DEPENDENCIES"/>
+    </appender>
+
+    <!-- 异步日志 -->
+    <appender name="PASSIVE_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度 -->
+        <queueSize>8192</queueSize>
+        <neverBlock>true</neverBlock>
+        <!-- 添加附加的 Appender -->
+        <appender-ref ref="PASSIVE"/>
+    </appender>
+
+
+    <!-- 单独划分追踪日志 -->
+    <logger name="passive" level="TRACE" additivity="false">
+        <appender-ref ref="PASSIVE_ASYNC"/>
+    </logger>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- 设置日志输出格式 -->
+            <pattern>${LOG_PATTERN}</pattern>
+
+            <!-- 设置输出字符集编码 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 将本服务的日志单独设置级别 -->
+    <logger name="com.study" level="ALL" additivity="false">
+        <appender-ref ref="ERROR_ASYNC"/>
+        <appender-ref ref="INFO_ASYNC"/>
+        <appender-ref ref="WARN_ASYNC"/>
+        <appender-ref ref="DEBUG_ASYNC"/>
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <!-- root 级别 ERROR -->
+    <root level="ERROR">
+        <appender-ref ref="DEPENDENCIES_ASYNC"/>
+    </root>
+</configuration>
