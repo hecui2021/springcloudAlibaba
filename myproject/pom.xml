@@ -186,6 +186,12 @@
         <!--            <version>1.0.0</version>-->
         <!--        </dependency>-->
 
+        <dependency>
+            <artifactId>resilience4j-spring-boot2</artifactId>
+            <groupId>io.github.resilience4j</groupId>
+            <version>1.7.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
