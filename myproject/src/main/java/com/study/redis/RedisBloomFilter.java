@@ -3,6 +3,7 @@ package com.study.redis;
 import org.redisson.api.RBloomFilter;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -12,7 +13,8 @@ import javax.annotation.PostConstruct;
  * @description: 布隆过滤器，解决缓存穿透问题
  * @date 2025-06-10
  */
-@Service
+//@Service
+//@DependsOn(value = "redissonClient")
 public class RedisBloomFilter {
 
     private RBloomFilter<String> bloomFilter;
