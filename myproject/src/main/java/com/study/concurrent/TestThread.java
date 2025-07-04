@@ -30,6 +30,9 @@ public class TestThread {
 
         log.info("i = {}", i);
         TimeUnit.SECONDS.sleep(3);
+        synchronized (TestThread.class) {
+            int i2 = task.get();
+        }
 
     }
 }
