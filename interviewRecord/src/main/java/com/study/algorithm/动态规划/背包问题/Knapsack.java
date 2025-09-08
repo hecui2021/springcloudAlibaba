@@ -10,6 +10,7 @@ package com.study.algorithm.动态规划.背包问题;
 public class Knapsack {
     public static int knapsack(int[] weights, int[] values, int capacity) {
         int n = weights.length;
+        // dp[i][w] 表示前 i 个物品在容量 w 下的最大价值。
         int[][] dp = new int[n + 1][capacity + 1]; // 定义状态数组
 
         for (int i = 1; i <= n; i++) {
@@ -23,6 +24,24 @@ public class Knapsack {
         }
 
         return dp[n][capacity]; // 返回结果
+    }
+
+    /**
+     * 空间优化：使用一维数组逆向更新。
+     * @param weights
+     * @param values
+     * @param capacity
+     * @return
+     */
+    public static int knapsack2(int[] weights, int[] values, int capacity) {
+        int[] dp = new int[capacity + 1];
+        for (int i = 0; i < weights.length; i++) {
+            for (int w = capacity; w >= weights[i]; w--) {
+                dp[w] = Math.max(dp[w], dp[w - weights[i]] + values[i]);
+            }
+        }
+
+        return dp[capacity]; // 返回结果
     }
 
     public static void main(String[] args) {

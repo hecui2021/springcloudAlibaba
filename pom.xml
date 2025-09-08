@@ -82,5 +82,6 @@
         <module>aiStudy</module>
         <module>interviewRecord</module>
         <module>myproject</module>
+        <module>docs</module>
     </modules>
 </project>
