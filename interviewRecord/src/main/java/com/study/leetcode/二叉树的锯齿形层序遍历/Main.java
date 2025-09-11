@@ -1,0 +1,39 @@
+package com.study.leetcode.二叉树的锯齿形层序遍历;
+
+import com.study.TreeNode;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * @Author: peterche
+ * @Description:
+ * @Date: 2025/9/11 08:36
+ */
+public class Main {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> list = new ArrayList();
+        cengxu(root, 0, list);
+
+        for (int i = 0; i < list.size(); i++) {
+            if (i % 2 != 0) {
+                List<Integer> levelList = list.get(i);
+                Collections.reverse(levelList);
+            }
+        }
+        return list;
+    }
+
+    public void cengxu(TreeNode root, int level, List<List<Integer>> list) {
+        if (root == null) {
+            return;
+        }
+        if (list.size() == level) {
+            list.add(new ArrayList());
+        }
+        list.get(level).add(root.val);
+        cengxu(root.left, level + 1, list);
+        cengxu(root.right, level + 1, list);
+    }
+}

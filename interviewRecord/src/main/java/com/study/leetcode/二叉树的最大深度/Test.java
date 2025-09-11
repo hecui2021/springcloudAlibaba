@@ -26,6 +26,24 @@ public class Test {
         System.out.println(i);
     }
 
+    public int maxDepth3(TreeNode root) {
+        bianli(root, 1);
+        return maxDeep;
+    }
+
+    int maxDeep = 0;
+
+    public void bianli(TreeNode root, int deep) {
+        if (root == null) {
+            return;
+        }
+        if (maxDeep < deep) {
+            maxDeep = deep;
+        }
+        bianli(root.left, deep + 1);
+        bianli(root.right, deep + 1);
+    }
+
     public int maxDepth2(TreeNode root) {
         if (root == null) {
             return 0;
