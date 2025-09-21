@@ -17,5 +17,7 @@ public class Application {
         Map<String,String> map = new LinkedHashMap<>();
         Set<String> strings = map.keySet();
         List<Integer> list = new ArrayList<>();
+        int a = 1;
+        int i = Math.min(a, 0);
     }
 }

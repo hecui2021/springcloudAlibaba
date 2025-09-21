@@ -7,14 +7,14 @@ package com.study;
  * @Date: 2025/3/11 22:08
  */
 
-public class NodeList {
+public class ListNode {
 
     public int index;
     public int val;
 
-    public NodeList next;
+    public ListNode next;
 
-    public NodeList(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 

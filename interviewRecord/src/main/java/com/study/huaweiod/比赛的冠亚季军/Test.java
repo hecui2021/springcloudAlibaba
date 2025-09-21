@@ -1,7 +1,7 @@
 package com.study.huaweiod.比赛的冠亚季军;
 
 
-import com.study.NodeList;
+import com.study.ListNode;
 
 /**
  * @author peterche
@@ -28,9 +28,9 @@ public class Test {
 
     }
 
-    public static int getCount(NodeList head) {
+    public static int getCount(ListNode head) {
         int count = 1;
-        NodeList cur = head;
+        ListNode cur = head;
         while (cur.next != null) {
             cur = cur.next;
             count++;
