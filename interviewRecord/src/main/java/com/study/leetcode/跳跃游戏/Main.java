@@ -8,9 +8,10 @@ package com.study.leetcode.跳跃游戏;
 public class Main {
     public static void main(String[] args) {
         Main main = new Main();
-        int[] nums = {2,3,1,1,4};
+//        int[] nums = {2,3,1,1,4};
+        int[] nums = {3,2,1,0,4};
         boolean b = main.canJump(nums);
-        System.out.println(b);
+//        System.out.println(b);
     }
 
     public boolean canJump(int[] nums) {
@@ -21,16 +22,17 @@ public class Main {
                 if (i + nums[i] >= position) {
                     position = i;
                     flag = true;
+                    if (position == 0) {
+                        System.out.println(true);
+                    }
                     break;
                 }
             }
             if (!flag) {
+                System.out.println(false);
                 return false;
             }
         }
-        // if (position == 0) {
-        //     return true;
-        // }
         return true;
     }
 }

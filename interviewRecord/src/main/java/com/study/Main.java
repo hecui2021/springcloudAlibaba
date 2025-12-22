@@ -1,7 +1,12 @@
 package com.study;
 
 
+import sun.net.www.http.HttpClient;
+
+import java.util.Collections;
 import java.util.Scanner;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author peterche
@@ -19,8 +24,9 @@ public class Main {
         int n = scanner.nextInt();  // 读取座位总数
         scanner.nextLine();  // 读取换行符
         String str = scanner.nextLine();
-
-
         scanner.close();
+
+        Lock lock = new ReentrantLock();
+        lock.lock();
     }
 }
